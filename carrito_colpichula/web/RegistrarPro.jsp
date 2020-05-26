@@ -16,8 +16,13 @@
         <h1>Registrar nuevo producto</h1>
         <form method="post" action="intermedio" class="formulario">
             <div class="contenedor">
-                <div class="input-contenedor">
-                    <input type="text" name="tipo_pro" placeholder="tipo de producto">
+                <div>
+                    <select name="tipo_prod_prueba"> 
+                        <option value="cuerpo">Cuerpo</option>
+                        <option value ="microfono">Microfono</option>
+                        <option value ="conexion">Conexion</option>
+                        <option value="controlador">Controladores</option>
+                    </select>
                 </div>
                 
                 <input type="submit" value="ir" class="button">

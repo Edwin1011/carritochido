@@ -35,15 +35,16 @@ public class guardarconexion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
             try{
                 //Obtenemos los parametros
                 int tipoc,alca;
                 int precio,disponi;
-                String imagen;
+                String imagen, pretipo,prealcance;
                 
-                tipoc =Integer.parseInt(request.getParameter("tipo"));
-                alca = Integer.parseInt(request.getParameter("alcance"));
+                pretipo = request.getParameter("tipo");
+                prealcance = request.getParameter("alcance");
+                tipoc =Integer.parseInt(pretipo);
+                alca = Integer.parseInt(prealcance);
                 imagen = request.getParameter("img");
                 precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));

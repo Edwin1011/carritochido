@@ -17,8 +17,11 @@
         <form method="post" action="guardarmicro" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
-                <div class="input-contenedor">
-                    <input type="text" name="tipo" placeholder="Tipo de micro">
+                <div>
+                    <select name="tipo">
+                        <option value="1">Direccional</option>
+                        <option value="2">Bidireccional</option>
+                    </select>
                 </div>
                 <div class="input-contenedor">
                     <input type="text" name="img" placeholder="Imagen url">

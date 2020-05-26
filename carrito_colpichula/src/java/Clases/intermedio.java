@@ -36,23 +36,22 @@ public class intermedio extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
            
-            String tipo;  
-            tipo = request.getParameter("tipo_pro");
+            String select;
+            select = request.getParameter("tipo_prod_prueba");
+            System.out.println(select);
                 
-                
-            if (tipo.equals("cuerpo")) {
+            if (select.equals("cuerpo")) {
                 response.sendRedirect("InsertarPCuerpo.jsp");
                 System.out.println("funciona");
-            }else if (tipo.equals("conexion")) {
+            }else if (select.equals("conexion")) {
                 response.sendRedirect("InsertarPConec.jsp");
                 System.out.println("no funciona");
-            }else if (tipo.equals("microfono")){
+            }else if (select.equals("microfono")){
                 response.sendRedirect("InsertarPMicro.jsp");
-            }else if (tipo.equals("controlador")) {
+            }else if (select.equals("controlador")) {
                 response.sendRedirect("InsertarPContro.jsp");
             }else{
                 response.sendRedirect("Error.jsp");
-                System.out.println(tipo);
             }
         }
     }

@@ -40,9 +40,11 @@ public class guardarmicro extends HttpServlet {
                 //Obtenemos los parametros
                 int tipo;
                 int precio,disponi;
-                String imagen;
+                String imagen,pretipo;
                 
-                tipo =Integer.parseInt(request.getParameter("tipo"));
+                pretipo = request.getParameter("tipo");
+                
+                tipo =Integer.parseInt(pretipo);
                 imagen = request.getParameter("img");
                 precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));
