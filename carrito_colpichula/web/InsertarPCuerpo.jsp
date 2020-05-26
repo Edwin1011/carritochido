@@ -17,11 +17,26 @@
         <form method="post" action="guardarcuerpo" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
-                <div class="input-contenedor">
-                    <input type="text" name="name" placeholder="Nombre del producto">
+                <div>
+                    <select name="name">
+                        <option value="1"> IN-EAR </option>
+                        <option value="2"> ON-EAR </option>
+                        <option value="3"> OVER-EAR</option>
+                    </select>
                 </div>
-                <div class="input-contenedor">
-                    <input type="text" name="col" placeholder="Color">
+                <div>
+                    <select name="col">
+                        <option value="1">Amarillo</option>
+                        <option value="2">Azul</option>
+                        <option value="3">Azul Cielo</option>
+                        <option value="4">Blanco</option>
+                        <option value="5">Lila</option>
+                        <option value="6">Rosa</option>
+                        <option value="7">Naranja</option>
+                        <option value="8">Negro</option>
+                        <option value="9">Rojo</option>
+                        <option value="10">Verde</option>
+                    </select>
                 </div>
                 <div class="input-contenedor">
                     <input type="text" name="img" placeholder="Imagen url">

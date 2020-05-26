@@ -40,10 +40,13 @@ public class guardarcuerpo extends HttpServlet {
                 //Obtenemos los parametros
                 int nombre,color;
                 int precio,disponi;
-                String imagen;
+                String imagen,prenombre,precolor;
                 
-                nombre =Integer.parseInt(request.getParameter("name"));
-                color =Integer.parseInt(request.getParameter("col"));
+                prenombre = request.getParameter("name");
+                precolor = request.getParameter("col");
+                
+                nombre =Integer.parseInt(prenombre);
+                color =Integer.parseInt(precolor);
                 imagen = request.getParameter("img");
                 precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));

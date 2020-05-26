@@ -17,11 +17,20 @@
         <form method="post" action="guardarconexion" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
-                <div class="input-contenedor">
-                    <input type="text" name="tipo" placeholder="Tipo de conexion">
+                <div>
+                    <select name="tipo">
+                        <option value="1">Cableado</option>
+                        <option value="2">Bluetooth</option>
+                    </select>
                 </div>
-                <div class="input-contenedor">
-                    <input type="text" name="alcance" placeholder="alcance de la conexion">
+                <div>
+                    <select name="alcance">
+                        <option value="1">1 m </option>
+                        <option value="2">1.5 m</option>
+                        <option value="3">2 m</option>
+                        <option value="4">2.5 m</option>
+                        <option value="5">3 m</option>
+                    </select>
                 </div>
                 <div class="input-contenedor">
                     <input type="text" name="img" placeholder="Imagen url">
