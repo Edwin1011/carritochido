@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Micro {
     private String imagen;
-    private int id_prodp,id_prod,precio,stock,tipo;
+    private int id_microfono,precio,stock,tipo;
     //Guardar a un nunevo cliente
     public static int Guardar(Micro e){
         
@@ -47,7 +47,69 @@ public class Micro {
         }
         return estatus;
     }
-
+    
+    public static List<Micro> getAllMicros() throws ClassNotFoundException{
+        List<Micro> lista = new ArrayList<Micro>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            con = Conexion.getConnection();
+            String q = "call ListaMicro";
+            ps = con.prepareStatement(q);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Micro p = new Micro();
+                
+                p.setId_microfono(rs.getInt(1));
+                p.setTipo(rs.getInt(2));
+                p.setImagen(rs.getString(3));
+                p.setPrecio(rs.getInt(4));
+                p.setStock(rs.getInt(5));
+                
+                lista.add(p);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            lista=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return lista;
+    }
+    public static int Eliminar(int id) throws ClassNotFoundException{
+        int estatus = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "call ELiminarMicros(?)";
+            
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            estatus = ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            
+        }finally{
+            try {                
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return estatus;
+    }
     public String getImagen() {
         return imagen;
     }
@@ -56,21 +118,7 @@ public class Micro {
         this.imagen = imagen;
     }
 
-    public int getId_prodp() {
-        return id_prodp;
-    }
-
-    public void setId_prodp(int id_prodp) {
-        this.id_prodp = id_prodp;
-    }
-
-    public int getId_prod() {
-        return id_prod;
-    }
-
-    public void setId_prod(int id_prod) {
-        this.id_prod = id_prod;
-    }
+   
 
     public int getPrecio() {
         return precio;
@@ -94,6 +142,14 @@ public class Micro {
 
     public void setTipo(int tipo) {
         this.tipo = tipo;
+    }
+
+    public int getId_microfono() {
+        return id_microfono;
+    }
+
+    public void setId_microfono(int id_microfono) {
+        this.id_microfono = id_microfono;
     }
 
     

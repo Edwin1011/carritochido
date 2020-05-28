@@ -64,7 +64,7 @@ public class guardarconexion extends HttpServlet {
                 
                 if(estado > 0){
                     System.out.println("Se guardo");
-                    response.sendRedirect("funciona.jsp");
+                    response.sendRedirect("ListaConexiones.jsp");
                 }else{
                     //No se porque esto
                     System.out.println("ALv todo");

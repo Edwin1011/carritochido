@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class PConec {
     private String imagen;
-    private int id_prodp,id_prod,precio,stock,tipo,alcance;
+    private int id_conec,precio,stock,tipo,alcance;
     //Guardar a un nunevo cliente
     public static int Guardar(PConec e){
         
@@ -49,7 +49,69 @@ public class PConec {
         }
         return estatus;
     }
-
+    public static List<PConec> getAllConexiones() throws ClassNotFoundException{
+        List<PConec> lista = new ArrayList<PConec>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            con = Conexion.getConnection();
+            String q = "call ListaConexiones";
+            ps = con.prepareStatement(q);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                PConec p = new PConec();
+                
+                p.setId_conec(rs.getInt(1));
+                p.setTipo(rs.getInt(2));
+                p.setAlcance(rs.getInt(3));
+                p.setImagen(rs.getString(4));
+                p.setPrecio(rs.getInt(5));
+                p.setStock(rs.getInt(6));
+                
+                lista.add(p);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            lista=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return lista;
+    }
+    public static int Eliminar(int id) throws ClassNotFoundException{
+        int estatus = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "call ELiminarConec(?)";
+            
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            estatus = ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            
+        }finally{
+            try {                
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return estatus;
+    }
     public String getImagen() {
         return imagen;
     }
@@ -58,22 +120,7 @@ public class PConec {
         this.imagen = imagen;
     }
 
-    public int getId_prodp() {
-        return id_prodp;
-    }
-
-    public void setId_prodp(int id_prodp) {
-        this.id_prodp = id_prodp;
-    }
-
-    public int getId_prod() {
-        return id_prod;
-    }
-
-    public void setId_prod(int id_prod) {
-        this.id_prod = id_prod;
-    }
-
+    
     public int getPrecio() {
         return precio;
     }
@@ -104,6 +151,14 @@ public class PConec {
 
     public void setAlcance(int alcance) {
         this.alcance = alcance;
+    }
+
+    public int getId_conec() {
+        return id_conec;
+    }
+
+    public void setId_conec(int id_conec) {
+        this.id_conec = id_conec;
     }
 
     

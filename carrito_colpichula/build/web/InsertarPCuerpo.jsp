@@ -4,7 +4,7 @@
     Author     : edwin
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" import="java.util.*, Clases.*"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +14,9 @@
 
     <body>
         <h1>Insertar un cuerpo</h1>
+        <%
+        Cuerpo c = new Cuerpo();
+        %>
         <form method="post" action="guardarcuerpo" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">

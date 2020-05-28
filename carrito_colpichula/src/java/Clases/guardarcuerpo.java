@@ -62,10 +62,13 @@ public class guardarcuerpo extends HttpServlet {
                 
                 int estado = Cuerpo.Guardar(e);
                 
+                int prueba = e.getId_cuerpo();
+                System.out.println(prueba);
+                
                 
                 if(estado > 0){
                     System.out.println("Se guardo");
-                    response.sendRedirect("funciona.jsp");
+                    response.sendRedirect("ListaCuerpos.jsp");
                 }else{
                     //No se porque esto
                     System.out.println("ALv todo");

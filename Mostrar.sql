@@ -162,7 +162,7 @@ CREATE TABLE `cliente` (
   `usuario` varchar(45) NOT NULL,
   `contraseña` varchar(45) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,6 +171,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Rebeca','asdasd','sdsd','2020-04-29','dsd','sd','5555','555','kjbj','jbjb');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +253,7 @@ CREATE TABLE `conexion` (
   KEY `Kalcance_idx` (`id_alcance`),
   CONSTRAINT `Kalcance` FOREIGN KEY (`id_alcance`) REFERENCES `calcance` (`id_alcance`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `Kconec_tipo` FOREIGN KEY (`id_tipoconec`) REFERENCES `ctipo_conec` (`id_tipoconec`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +262,7 @@ CREATE TABLE `conexion` (
 
 LOCK TABLES `conexion` WRITE;
 /*!40000 ALTER TABLE `conexion` DISABLE KEYS */;
-INSERT INTO `conexion` VALUES (1,1,1,'dfsd',50,1),(2,1,1,'ihu',40,10);
+INSERT INTO `conexion` VALUES (4,2,3,'sdf',12,12);
 /*!40000 ALTER TABLE `conexion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,7 +281,7 @@ CREATE TABLE `controladores` (
   `stock_contro` int(11) NOT NULL,
   PRIMARY KEY (`id_cont`),
   KEY `Kdesc_contro_idx` (`descripcion`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +290,7 @@ CREATE TABLE `controladores` (
 
 LOCK TABLES `controladores` WRITE;
 /*!40000 ALTER TABLE `controladores` DISABLE KEYS */;
-INSERT INTO `controladores` VALUES (1,'Control de volumen independiente, controles de reproducion y contestador de llamadas','fdf',1,11),(2,'Control de volumen independiente, controles de reproducion y contestador de llamadas','kjkvk',500,50);
+INSERT INTO `controladores` VALUES (4,'Control de volumen independiente, controles de reproducion y contestador de llamadas','dsdsd',10,1000);
 /*!40000 ALTER TABLE `controladores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,7 +364,7 @@ CREATE TABLE `cuerpo` (
   KEY `Kcuerpo_color_idx` (`id_color`),
   CONSTRAINT `Kcuerpo_color` FOREIGN KEY (`id_color`) REFERENCES `ccolores` (`id_color`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `Kcuerpo_nombre` FOREIGN KEY (`id_nombre`) REFERENCES `cnombre` (`id_nombre`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -372,7 +373,7 @@ CREATE TABLE `cuerpo` (
 
 LOCK TABLES `cuerpo` WRITE;
 /*!40000 ALTER TABLE `cuerpo` DISABLE KEYS */;
-INSERT INTO `cuerpo` VALUES (1,1,1,'kjkvk',500,50),(2,2,1,'kjkvk',500,50),(3,1,1,'sds',48,484),(4,2,2,'kknoi',11,111);
+INSERT INTO `cuerpo` VALUES (3,1,1,'sds',48,484),(4,2,2,'kknoi',11,111),(5,2,5,'xcz',60,70),(6,1,1,'vsd',66,66),(7,1,1,'nkn',1,45),(8,1,1,'fdf',20,10),(9,1,1,'fdf',20,10),(10,1,1,'fdf',20,10),(11,1,1,'fdf',20,10),(12,3,10,'dad',50,50);
 /*!40000 ALTER TABLE `cuerpo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -417,7 +418,7 @@ CREATE TABLE `microfono` (
   PRIMARY KEY (`id_microfono`),
   KEY `Kmic_tipo_idx` (`id_tipomic`),
   CONSTRAINT `Kmic_tipo` FOREIGN KEY (`id_tipomic`) REFERENCES `ctipo_mic` (`id_tipomic`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -426,7 +427,7 @@ CREATE TABLE `microfono` (
 
 LOCK TABLES `microfono` WRITE;
 /*!40000 ALTER TABLE `microfono` DISABLE KEYS */;
-INSERT INTO `microfono` VALUES (1,1,'zdf',45,10),(2,1,'aa',10,10),(3,1,'ijpo',50,50);
+INSERT INTO `microfono` VALUES (2,1,'aa',10,10),(3,1,'ijpo',50,50),(4,2,'cz',110,1);
 /*!40000 ALTER TABLE `microfono` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -474,6 +475,82 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ELiminarCliente`(in id int)
 begin
 	delete from cliente where id_cliente = id;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ELiminarConec` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ELiminarConec`(in id int)
+begin
+	delete from conexion where id_conec = id;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ELiminarContro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ELiminarContro`(in id int)
+begin
+delete from controladores where id_cont = id ;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ELiminarCuerpo` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ELiminarCuerpo`(in id int)
+begin
+delete from cuerpo where id_Cuerpo = id;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ELiminarMicros` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ELiminarMicros`(in id int)
+begin
+delete from microfono where id_microfono = id;
 end ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -599,6 +676,82 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ListaConexiones` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ListaConexiones`()
+begin
+	select * from conexion;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ListaContro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ListaContro`()
+begin
+select * from controladores;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ListaCuerpos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ListaCuerpos`()
+begin
+select * from cuerpo;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ListaMicro` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ListaMicro`()
+begin
+select * from microfono;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `Pepe` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -628,4 +781,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-26  1:34:25
+-- Dump completed on 2020-05-28  2:18:56

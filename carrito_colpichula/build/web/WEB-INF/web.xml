@@ -40,6 +40,22 @@
         <servlet-name>guardarcontro</servlet-name>
         <servlet-class>Clases.guardarcontro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarCuerpo</servlet-name>
+        <servlet-class>Clases.EliminarCuerpo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarConec</servlet-name>
+        <servlet-class>Clases.EliminarConec</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarMicro</servlet-name>
+        <servlet-class>Clases.EliminarMicro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarContro</servlet-name>
+        <servlet-class>Clases.EliminarContro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -79,6 +95,22 @@
     <servlet-mapping>
         <servlet-name>guardarcontro</servlet-name>
         <url-pattern>/guardarcontro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarCuerpo</servlet-name>
+        <url-pattern>/EliminarCuerpo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarConec</servlet-name>
+        <url-pattern>/EliminarConec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarMicro</servlet-name>
+        <url-pattern>/EliminarMicro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarContro</servlet-name>
+        <url-pattern>/EliminarContro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

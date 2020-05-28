@@ -62,7 +62,7 @@ public class guardarmicro extends HttpServlet {
                 
                 if(estado > 0){
                     System.out.println("Se guardo");
-                    response.sendRedirect("funciona.jsp");
+                    response.sendRedirect("ListaMicro.jsp");
                 }else{
                     //No se porque esto
                     System.out.println("chale");

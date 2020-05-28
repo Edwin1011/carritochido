@@ -16,8 +16,8 @@ import java.util.List;
  * @author edwin
  */
 public class Contro {
-    private String imagen;
-    private int id_prodp,id_prod,precio,stock,tipo;
+    private String imagen,desc;
+    private int id_cont,precio,stock;
     //Guardar a un nunevo cliente
     public static int Guardar(Contro e){
         
@@ -47,6 +47,68 @@ public class Contro {
         }
         return estatus;
     }
+    public static List<Contro> getAllContros() throws ClassNotFoundException{
+        List<Contro> lista = new ArrayList<Contro>();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            con = Conexion.getConnection();
+            String q = "call ListaContro";
+            ps = con.prepareStatement(q);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Contro c = new Contro();
+                
+                c.setId_cont(rs.getInt(1));
+                c.setDesc(rs.getString(2));
+                c.setImagen(rs.getString(3));
+                c.setPrecio(rs.getInt(4));
+                c.setStock(rs.getInt(5));
+                
+                lista.add(c);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            lista=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return lista;
+    }
+    public static int Eliminar(int id) throws ClassNotFoundException{
+        int estatus = 0;
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "call ELiminarContro(?)";
+            
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            estatus = ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            
+        }finally{
+            try {                
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return estatus;
+    }
 
     public String getImagen() {
         return imagen;
@@ -56,21 +118,7 @@ public class Contro {
         this.imagen = imagen;
     }
 
-    public int getId_prodp() {
-        return id_prodp;
-    }
-
-    public void setId_prodp(int id_prodp) {
-        this.id_prodp = id_prodp;
-    }
-
-    public int getId_prod() {
-        return id_prod;
-    }
-
-    public void setId_prod(int id_prod) {
-        this.id_prod = id_prod;
-    }
+    
 
     public int getPrecio() {
         return precio;
@@ -88,12 +136,22 @@ public class Contro {
         this.stock = stock;
     }
 
-    public int getTipo() {
-        return tipo;
+    
+
+    public int getId_cont() {
+        return id_cont;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setId_cont(int id_cont) {
+        this.id_cont = id_cont;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     
