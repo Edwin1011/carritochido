@@ -112,6 +112,76 @@ public class PConec {
         }
         return estatus;
     }
+    public  String getNombreById( int id_tipo ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String tipo_conec="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescTipoConec(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_tipo);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                tipo_conec = rs.getString(2);
+            }
+            
+            System.out.println(id_tipo);
+            System.out.println("huevos");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            System.out.println(id_tipo);
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return tipo_conec ;
+    }
+    public  String getAlcanceById( int id_alcance ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String alcance="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescAlc(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_alcance);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                alcance = rs.getString(2);
+            }
+            
+            System.out.println(alcance);
+            System.out.println("huevos");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            System.out.println(alcance);
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return alcance ;
+    }
     public String getImagen() {
         return imagen;
     }

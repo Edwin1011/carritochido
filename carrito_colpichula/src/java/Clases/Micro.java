@@ -110,6 +110,87 @@ public class Micro {
         }
         return estatus;
     }
+     public  String getTipoById( int id_tipo ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String nombre_micro="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescTNombreMi(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_tipo);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                nombre_micro = rs.getString(2);
+            }
+            
+            System.out.println(id_tipo);
+            System.out.println("huevos");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            System.out.println(id_tipo);
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return nombre_micro ;
+    }
+     public  String getCdescTipoById( int id_tipo ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        int cdesc_tipo = 0;
+        String desc="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescTNombreMi(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_tipo);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                cdesc_tipo = rs.getInt(3);
+            }
+            
+            System.out.println(cdesc_tipo);
+            System.out.println("huevos");
+            
+            String q2 = "call CdescTipo(?)";
+            ps = con.prepareStatement(q2);
+            ps.setInt(1,cdesc_tipo);
+            rs2= ps.executeQuery();
+            
+            while(rs2.next()){
+                desc = rs2.getString(2);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            System.out.println(id_tipo);
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return desc ;
+    }
     public String getImagen() {
         return imagen;
     }

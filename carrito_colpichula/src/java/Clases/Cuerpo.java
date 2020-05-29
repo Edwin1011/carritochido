@@ -40,7 +40,6 @@ public class Cuerpo {
             ps.setInt(4, e.getPrecio());
             ps.setInt(5, e.getStock());
             
-            
             estatus = ps.executeUpdate();
             
             con.close();
@@ -115,6 +114,118 @@ public class Cuerpo {
         }
         return estatus;
     }
+    public  String getColorById( int id_color ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String d_color="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescColor(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_color);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                d_color = rs.getString(2);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return d_color ;
+    }
+    
+    public  String getNombreCById( int id_nombre ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String dt_nombre="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DesctNombre(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_nombre);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                dt_nombre = rs.getString(2);
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return dt_nombre ;
+    }
+    public  String getCdescNCById( int id_nombre ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        int cdesc_nombre = 0 ;
+        String descripcion = "";
+        try {
+            con = Conexion.getConnection();
+            String q = "call DesctNombre(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_nombre);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                cdesc_nombre = rs.getInt(3);
+            }
+            
+            
+            String q2 = "call CDescNombre(?)";
+            ps=con.prepareStatement(q2);
+            ps.setInt(1,cdesc_nombre);
+            rs2 = ps.executeQuery();
+            
+            while(rs2.next()){
+               descripcion = rs2.getString(2);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return descripcion ;
+    }
+    
     public String getImagen() {
         return imagen;
     }

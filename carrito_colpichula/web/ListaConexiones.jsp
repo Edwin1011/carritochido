@@ -52,18 +52,16 @@
                               
                             </td>
                             <% int tipo = p.getTipo();
-                                String nombre2 = "";
-                            if(tipo==1){
-                                nombre2 = "Cableado";
-                            }else{
-                                nombre2 = "Bluetooth";
-                            }
+                                String nombre2 = p.getNombreById(p.getTipo());
                             %>
                             <td align="center"><%=nombre2%>
 
                             </td>
-                            <td align="center"><%= p.getAlcance()%>
-
+                            <%int alcance = p.getAlcance();
+                            String alcance2 = p.getAlcanceById(p.getAlcance());
+                            %>
+                            <td align="center"><%= alcance2 %>
+                               metros
                             </td>
                             <td align="center"><%= p.getImagen()%>
 

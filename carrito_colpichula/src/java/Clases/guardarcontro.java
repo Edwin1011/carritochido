@@ -8,6 +8,7 @@ package Clases;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +39,9 @@ public class guardarcontro extends HttpServlet {
            
             try{
                 //Obtenemos los parametros
-                int precio,disponi;
+                int precio,disponi,tipo;
                 String imagen;
+                tipo = 3;
                 
                 imagen = request.getParameter("img");
                 precio = Integer.parseInt(request.getParameter("pre"));
@@ -54,6 +56,27 @@ public class guardarcontro extends HttpServlet {
                 
                 int estado = Contro.Guardar(e);
                 
+                int posicion = 0;
+                int penultimo = 0;
+                
+                
+                List<Contro> lista = Contro.getAllContros();
+                
+                penultimo = lista.size()-1;
+                Contro c = new Contro();
+                for (int i = 0; i < lista.size(); i++) {
+                    c = (Contro)lista.get(i);
+                    
+                    if (i == penultimo) {
+                        int id_final = 0;
+                        id_final = c.getId_cont();
+                        Producto p = new Producto();
+                
+                        p.GuardarTodosP(tipo,id_final);
+                        int prueba = e.getId_cont();
+                        System.out.println(prueba);
+                    }
+                }
                 
                 if(estado > 0){
                     System.out.println("Se guardo");

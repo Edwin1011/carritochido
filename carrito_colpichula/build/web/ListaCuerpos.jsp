@@ -26,6 +26,9 @@
                             Nombre
                         </td>
                         <td align="center">
+                            Descripcion
+                        </td>
+                        <td align="center">
                             Color
                         </td>
                         <td align="center">
@@ -41,54 +44,34 @@
                             Eliminar
                         </td>
                 <%
+                    Cuerpo pepe = new Cuerpo();
+                    
                     List<Cuerpo> lista = Cuerpo.getAllCuerpos();
                     Cuerpo c = new Cuerpo();
                     for (int i = 0; i < lista.size(); i++) {
                             c = (Cuerpo)lista.get(i);
                         
                 %>
+                
+                
                         <tr>
                             <td align="center"><%= c.getId_cuerpo()%>
                               
                             </td>
                             <%
                                 int nombre = c.getNombre();
-                                String nombre2 = "";
-                            if(nombre==1){
-                                nombre2 = "IN-EAR";
-                            }else if(nombre==2){
-                                nombre2 ="ON-EAR";
-                            }else{
-                                nombre2 ="OVER-EAR";
-                            }
+                                String nombre2 = pepe.getNombreCById(c.getNombre());
+                                String descripcion = pepe.getCdescNCById(c.getNombre());
                             %>
-                            <td align="center"><%= nombre2%>
+                            <td align="center"><%= nombre2 %>
+
+                            </td>
+                            <td align="center"><%= descripcion %>
 
                             </td>
                             <%
                                 int color = c.getColor();
-                                String color2 = "";
-                            if(color==1){
-                                color2 = "Amarillo";
-                            }else if(color==2){
-                                color2 = "Azul";
-                            }else if(color==3){
-                                color2 = "Azul Cielo";
-                            }else if(color==4){
-                                color2 = "Blanco";
-                            }else if(color==5){
-                                color2 = "Lila";
-                            }else if(color==6){
-                                color2 = "Rosa";
-                            }else if(color==7){
-                                color2 = "Naranja";
-                            }else if(color==8){
-                                color2 = "Negro";
-                            }else if(color == 9){
-                                color2 = "Rojo";
-                            }else{
-                                color2 = "Verde";
-                            }
+                                String color2 = pepe.getColorById(c.getColor());                            
                             %>
                             <td align="center"><%= color2 %>
 
@@ -106,6 +89,7 @@
                                 <a href="EliminarCuerpo?id=<%= c.getId_cuerpo()%>" class="link">Eliminar el id <%= c.getId_cuerpo() %> </a>
                             </td>
                         <%
+                            
                             }
                         %>
                         </tr>                

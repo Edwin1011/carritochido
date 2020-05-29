@@ -18,27 +18,46 @@ import java.util.List;
 public class Producto {
     private String img;
     private int idprodp,idprod,precio,stock;
-    public static int Guardar(Producto e){
-        
+    public  int GuardarTodosP(int tipo, int id){
+        int tipo_p = tipo;
         int estatus = 0;
-        
         Connection con = null;
         PreparedStatement ps = null;
-       
-        
         try {
             con = Conexion.getConnection();
+            if (tipo_p == 1) {
+                String q = "call GuardarTodosP(?,?)";
+                ps = con.prepareStatement(q);
             
-            String q = "insert into MProductos (id_prod, img_prod, precio_prod, Stock_prod) "
-                    + "values (?, ?, ?, ?)";
-            
-            ps = con.prepareStatement(q);
-            
-            ps.setInt(1, e.getIdprod());
-            ps.setString(2,e.getImg() );
-            ps.setInt(3,e.getPrecio());
-            ps.setInt(4, e.getStock());
-            
+                
+                ps.setInt(1, tipo);
+                ps.setInt(2,id);
+                
+            }else if (tipo_p==2) {
+                String q = "call GuardarTodosP(?,?)";
+                ps = con.prepareStatement(q);
+                
+                
+                ps.setInt(1,tipo);
+                ps.setInt(2, id);
+                
+            }else if(tipo_p==3){
+                String q = "call GuardarTodosP(?,?)";
+                ps = con.prepareStatement(q);
+                
+                
+                ps.setInt(1,tipo);
+                ps.setInt(2, id);
+                
+            }else if(tipo_p==4){
+                String q = "call GuardarTodosP(?,?)";
+                ps = con.prepareStatement(q);
+                
+                
+                ps.setInt(1,tipo);
+                ps.setInt(2, id);
+            }
+           
             estatus = ps.executeUpdate();
             
             con.close();

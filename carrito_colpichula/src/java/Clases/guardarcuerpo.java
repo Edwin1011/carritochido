@@ -8,6 +8,7 @@ package Clases;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +40,8 @@ public class guardarcuerpo extends HttpServlet {
             try{
                 //Obtenemos los parametros
                 int nombre,color;
-                int precio,disponi;
+                int precio,disponi,tipo;
+                tipo=1;
                 String imagen,prenombre,precolor;
                 
                 prenombre = request.getParameter("name");
@@ -61,9 +63,27 @@ public class guardarcuerpo extends HttpServlet {
                 
                 
                 int estado = Cuerpo.Guardar(e);
+                int posicion = 0;
+                int penultimo = 0;
                 
-                int prueba = e.getId_cuerpo();
-                System.out.println(prueba);
+                
+                List<Cuerpo> lista = Cuerpo.getAllCuerpos();
+                
+                penultimo = lista.size()-1;
+                Cuerpo c = new Cuerpo();
+                for (int i = 0; i < lista.size(); i++) {
+                    c = (Cuerpo)lista.get(i);
+                    
+                    if (i == penultimo) {
+                        int id_final = 0;
+                        id_final = c.getId_cuerpo();
+                        Producto p = new Producto();
+                
+                        p.GuardarTodosP(tipo,id_final);
+                        int prueba = e.getId_cuerpo();
+                        System.out.println(prueba);
+                    }
+                }
                 
                 
                 if(estado > 0){

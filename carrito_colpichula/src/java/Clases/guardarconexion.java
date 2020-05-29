@@ -8,6 +8,7 @@ package Clases;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +39,8 @@ public class guardarconexion extends HttpServlet {
             try{
                 //Obtenemos los parametros
                 int tipoc,alca;
-                int precio,disponi;
+                int precio,disponi,tipo;
+                tipo = 2;
                 String imagen, pretipo,prealcance;
                 
                 pretipo = request.getParameter("tipo");
@@ -60,7 +62,27 @@ public class guardarconexion extends HttpServlet {
                 
                 
                 int estado = PConec.Guardar(e);
+                int posicion = 0;
+                int penultimo = 0;
                 
+                
+                List<PConec> lista = PConec.getAllConexiones();
+                
+                penultimo = lista.size()-1;
+                PConec c = new PConec();
+                for (int i = 0; i < lista.size(); i++) {
+                    c = (PConec)lista.get(i);
+                    
+                    if (i == penultimo) {
+                        int id_final = 0;
+                        id_final = c.getId_conec();
+                        Producto p = new Producto();
+                
+                        p.GuardarTodosP(tipo,id_final);
+                        int prueba = e.getId_conec();
+                        System.out.println(prueba);
+                    }
+                }
                 
                 if(estado > 0){
                     System.out.println("Se guardo");

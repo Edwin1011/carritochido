@@ -26,6 +26,9 @@
                             Tipo de microfono
                         </td>
                         <td align="center">
+                            Descripcion
+                        </td>
+                        <td align="center">
                             URL de la imagen
                         </td>
                         <td align="center">
@@ -50,14 +53,13 @@
                             </td>
                             <%
                                 int nombre = m.getTipo();
-                                String nombre2 = "";
-                            if(nombre==1){
-                                nombre2 = "Direccional";
-                            }else{
-                                nombre2 ="Bidireccional";
-                            }
+                                String descripcion = m.getCdescTipoById(m.getTipo());
+                                String nombre2 = m.getTipoById(m.getTipo());
                             %>
                             <td align="center"><%= nombre2 %>
+
+                            </td>
+                            <td align="center"><%= descripcion %>
 
                             </td>
                             <td align="center"><%= m.getImagen()%>

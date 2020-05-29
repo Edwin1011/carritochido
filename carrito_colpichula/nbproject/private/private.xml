@@ -3,22 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaCuerpos.jsp</file>
             <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/index.html</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/guardarmicro.java</file>
             <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/guardarcontro.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/InsertarPConec.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaControles.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaConexiones.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Contro.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/EliminarContro.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Micro.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/guardarcuerpo.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Cuerpo.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Producto.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaMicro.jsp</file>
             <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/guardarconexion.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/PConec.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/EliminarConec.java</file>
-=======
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/ListaMicro.jsp</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/EliminarContro.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/ListaCuerpos.jsp</file>
->>>>>>> 940fef9d45b375a217536e0fa244e83bd51af69d
         </group>
     </open-files>
 </project-private>
