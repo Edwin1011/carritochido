@@ -48,7 +48,16 @@
                             <td align="center"><%= m.getId_microfono()%>
                               
                             </td>
-                            <td align="center"><%= m.getTipo() %>
+                            <%
+                                int nombre = m.getTipo();
+                                String nombre2 = "";
+                            if(nombre==1){
+                                nombre2 = "Direccional";
+                            }else{
+                                nombre2 ="Bidireccional";
+                            }
+                            %>
+                            <td align="center"><%= nombre2 %>
 
                             </td>
                             <td align="center"><%= m.getImagen()%>
