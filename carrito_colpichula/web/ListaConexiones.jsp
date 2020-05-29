@@ -51,7 +51,15 @@
                             <td align="center"><%= p.getId_conec()%>
                               
                             </td>
-                            <td align="center"><%= p.getTipo() %>
+                            <% int tipo = p.getTipo();
+                                String nombre2 = "";
+                            if(tipo==1){
+                                nombre2 = "Cableado";
+                            }else{
+                                nombre2 = "Bluetooth";
+                            }
+                            %>
+                            <td align="center"><%=nombre2%>
 
                             </td>
                             <td align="center"><%= p.getAlcance()%>
