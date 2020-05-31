@@ -38,52 +38,31 @@ public class guardarconexion extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             try{
                 //Obtenemos los parametros
-                int tipoc,alca;
-                int precio,disponi,tipo;
-                tipo = 2;
-                String imagen, pretipo,prealcance;
+                int tipoc,imagen;
+                int precio,disponi;
+                String pretipo;
+                imagen = 0;
                 
                 pretipo = request.getParameter("tipo");
-                prealcance = request.getParameter("alcance");
                 tipoc =Integer.parseInt(pretipo);
-                alca = Integer.parseInt(prealcance);
-                imagen = request.getParameter("img");
-                precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));
                 //Hacemos el objeto
+                
+                if (tipoc == 1) {
+                    imagen=1;
+                }else if (tipoc == 2) {
+                    imagen = 2;
+                }
+                
                 PConec e = new PConec();
                 
                 e.setTipo(tipoc);
-                e.setAlcance(alca);
                 e.setImagen(imagen);
-                e.setPrecio(precio);
                 e.setStock(disponi);
                 
                 
                 
                 int estado = PConec.Guardar(e);
-                int posicion = 0;
-                int penultimo = 0;
-                
-                
-                List<PConec> lista = PConec.getAllConexiones();
-                
-                penultimo = lista.size()-1;
-                PConec c = new PConec();
-                for (int i = 0; i < lista.size(); i++) {
-                    c = (PConec)lista.get(i);
-                    
-                    if (i == penultimo) {
-                        int id_final = 0;
-                        id_final = c.getId_conec();
-                        Producto p = new Producto();
-                
-                        p.GuardarTodosP(tipo,id_final);
-                        int prueba = e.getId_conec();
-                        System.out.println(prueba);
-                    }
-                }
-                
                 if(estado > 0){
                     System.out.println("Se guardo");
                     response.sendRedirect("ListaConexiones.jsp");

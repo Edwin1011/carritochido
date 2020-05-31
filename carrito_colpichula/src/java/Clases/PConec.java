@@ -16,8 +16,8 @@ import java.util.List;
  * @author edwin
  */
 public class PConec {
-    private String imagen;
-    private int id_conec,precio,stock,tipo,alcance;
+    private int imagen;
+    private int id_conec,precio,stock,tipo;
     //Guardar a un nunevo cliente
     public static int Guardar(PConec e){
         
@@ -30,15 +30,13 @@ public class PConec {
         try {
             con = Conexion.getConnection();
             //call InsertarCuerpo(?, ?, ?, ?, ?)
-            String q = "call InsertarConexion (?, ?, ?, ?, ?)";
+            String q = "call InsertarConexion (?, ?, ?)";
             
             ps = con.prepareStatement(q);
             
             ps.setInt(1, e.getTipo());
-            ps.setInt(2, e.getAlcance());
-            ps.setString(3, e.getImagen());           
-            ps.setInt(4, e.getPrecio());
-            ps.setInt(5, e.getStock());
+            ps.setInt(2, e.getImagen());
+            ps.setInt(3, e.getStock());
             
             
             estatus = ps.executeUpdate();
@@ -66,10 +64,8 @@ public class PConec {
                 
                 p.setId_conec(rs.getInt(1));
                 p.setTipo(rs.getInt(2));
-                p.setAlcance(rs.getInt(3));
-                p.setImagen(rs.getString(4));
-                p.setPrecio(rs.getInt(5));
-                p.setStock(rs.getInt(6));
+                p.setImagen(rs.getInt(3));
+                p.setStock(rs.getInt(4));
                 
                 lista.add(p);
             }
@@ -147,28 +143,26 @@ public class PConec {
         }
         return tipo_conec ;
     }
-    public  String getAlcanceById( int id_alcance ) throws ClassNotFoundException{
+    
+    public  String getImagenById( int id_imagen ) throws ClassNotFoundException{
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        String alcance="";
+        String imagen ="";
         try {
             con = Conexion.getConnection();
-            String q = "call DescAlc(?)";
+            String q = "call Imagen_Conec(?)";
             ps = con.prepareStatement(q);
-            ps.setInt(1,id_alcance);
+            ps.setInt(1,id_imagen);
             rs = ps.executeQuery();
             while(rs.next()){
-                alcance = rs.getString(2);
+                imagen = rs.getString(2);
             }
             
-            System.out.println(alcance);
-            System.out.println("huevos");
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println(ex.getMessage());
             System.out.println(ex.getStackTrace());
-            System.out.println(alcance);
         }finally{
             try {
                 rs.close();
@@ -180,13 +174,13 @@ public class PConec {
             System.out.println(ex.getStackTrace());
             }
         }
-        return alcance ;
+        return imagen ;
     }
-    public String getImagen() {
+    public int getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 
@@ -214,15 +208,6 @@ public class PConec {
     public void setTipo(int tipo) {
         this.tipo = tipo;
     }
-
-    public int getAlcance() {
-        return alcance;
-    }
-
-    public void setAlcance(int alcance) {
-        this.alcance = alcance;
-    }
-
     public int getId_conec() {
         return id_conec;
     }

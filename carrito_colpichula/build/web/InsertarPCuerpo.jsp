@@ -42,12 +42,6 @@
                     </select>
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="img" placeholder="Imagen url">
-                </div>
-                <div class="input-contenedor">
-                    <input type="text" name="pre" placeholder="Precio">
-                </div>
-                <div class="input-contenedor">
                     <input type="text" name="stock" placeholder="Cantidad disponible">
                 </div>               
                 <input type="submit" value="Registrarse" class="button">

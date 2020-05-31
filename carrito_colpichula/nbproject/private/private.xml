@@ -3,9 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/ListaMicro.jsp</file>
             <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/EliminarContro.java</file>
             <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/ListaCuerpos.jsp</file>
+=======
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/guardarmicro.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/QuitarStockMicro.jsp</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/InsertarPConec.jsp</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Micro.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/InsertarPMicro.jsp</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaConexiones.jsp</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaMicro.jsp</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/guardarconexion.java</file>
+            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/PConec.java</file>
+>>>>>>> 88ca36b2905fdddc4bd9ce1d3f68a88bcbc57d94
         </group>
     </open-files>
 </project-private>

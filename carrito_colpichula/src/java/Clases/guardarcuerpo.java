@@ -39,52 +39,91 @@ public class guardarcuerpo extends HttpServlet {
            
             try{
                 //Obtenemos los parametros
-                int nombre,color;
-                int precio,disponi,tipo;
-                tipo=1;
-                String imagen,prenombre,precolor;
+                int nombre,color,imagen,disponi;
+                String prenombre,precolor;
+                imagen =0 ;
                 
                 prenombre = request.getParameter("name");
                 precolor = request.getParameter("col");
                 
                 nombre =Integer.parseInt(prenombre);
                 color =Integer.parseInt(precolor);
-                imagen = request.getParameter("img");
-                precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));
                 //Hacemos el objeto
+                
+                if (nombre == 1 & color == 1) {
+                    imagen= 1;
+                }else if( nombre ==1 & color ==2){
+                    imagen= 5;
+                }else if(nombre == 1 & color == 3){
+                    imagen= 4;
+                }else if(nombre == 1 & color == 4){
+                    imagen= 3;
+                }else if(nombre == 1 & color ==5){
+                    imagen = 2;
+                }else if(nombre == 1 & color == 6){
+                    imagen= 8;
+                }else if(nombre == 1 & color == 7){
+                    imagen= 7;
+                }else if(nombre == 1 & color == 8){
+                    imagen= 6;
+                }else if(nombre == 1 & color == 9){
+                    imagen= 10;
+                }else if(nombre == 1 & color == 10){
+                    imagen= 9;
+                }else if(nombre == 2 & color == 1){
+                    imagen= 14;
+                }else if(nombre == 2 & color == 2){
+                    imagen= 15;
+                }else if(nombre == 2 & color == 3){
+                    imagen= 12;
+                }else if(nombre == 2 & color == 4){
+                    imagen= 13;
+                }else if(nombre == 2 & color == 5){
+                    imagen= 16;
+                }else if(nombre == 2 & color == 6){
+                    imagen= 17;
+                }else if(nombre == 2 & color == 7){
+                    imagen= 18;
+                }else if(nombre == 2 & color == 8){
+                    imagen= 11;
+                }else if(nombre == 2 & color == 9){
+                    imagen= 20;
+                }else if(nombre == 2 & color == 10){
+                    imagen= 23;
+                }else if(nombre == 3 & color == 1){
+                    imagen= 22;
+                }else if(nombre == 3 & color == 2){
+                    imagen= 21;
+                }else if(nombre == 3 & color == 3){
+                    imagen= 19;
+                }else if(nombre == 3 & color == 4){
+                    imagen= 24;
+                }else if(nombre == 3 & color == 5){
+                    imagen= 26;
+                }else if(nombre == 3 & color == 6){
+                    imagen= 27;
+                }else if(nombre == 3 & color == 7){
+                    imagen= 28;
+                }else if(nombre == 3 & color == 8){
+                    imagen= 29;
+                }else if(nombre == 3 & color == 9){
+                    imagen= 25;
+                }else{
+                    imagen = 30;
+                }
+                
+                
                 Cuerpo e = new Cuerpo();
                 e.setNombre(nombre);
                 e.setColor(color);
-                e.setImagen(imagen);
-                e.setPrecio(precio);
                 e.setStock(disponi);
                 
                 
-                
+                System.out.println("no llega a estado");
                 int estado = Cuerpo.Guardar(e);
-                int posicion = 0;
-                int penultimo = 0;
                 
-                
-                List<Cuerpo> lista = Cuerpo.getAllCuerpos();
-                
-                penultimo = lista.size()-1;
-                Cuerpo c = new Cuerpo();
-                for (int i = 0; i < lista.size(); i++) {
-                    c = (Cuerpo)lista.get(i);
-                    
-                    if (i == penultimo) {
-                        int id_final = 0;
-                        id_final = c.getId_cuerpo();
-                        Producto p = new Producto();
-                
-                        p.GuardarTodosP(tipo,id_final);
-                        int prueba = e.getId_cuerpo();
-                        System.out.println(prueba);
-                    }
-                }
-                
+                System.out.println("Mandamos el estado");
                 
                 if(estado > 0){
                     System.out.println("Se guardo");

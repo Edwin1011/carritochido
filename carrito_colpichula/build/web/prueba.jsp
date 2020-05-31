@@ -14,31 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de todos los clientes</h1>
-        <div class="megaconteiner">
-                <h1>PRueba</h1>
-                <form>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td align="center" >
-                                <select>
-                                    <option>Cuerpo</option>
-                                    <option>Conexion</option>
-                                </select>
-                            </td>
-                            <td align="center">
-                                <div id="contenedor"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td> 
-                            <td></td> 
-                        </tr>            
-                    </tbody>
-                </table>
-                </form>
-            </div>
+        ESOOOOOO
     </body>
     
     <script src="js/prueba.js"></script>
