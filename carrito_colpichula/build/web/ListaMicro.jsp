@@ -47,7 +47,6 @@
                 %>
                         <tr>
                             <td align="center"><%= m.getId_microfono()%>
-                              
                             </td>
                             <%
                                 int nombre = m.getTipo();

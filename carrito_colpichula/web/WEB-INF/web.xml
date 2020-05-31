@@ -72,6 +72,10 @@
         <servlet-name>CerrarSesion</servlet-name>
         <servlet-class>Clases.CerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>estadistica</servlet-name>
+        <servlet-class>Clases.estadistica</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>estadistica</servlet-name>
+        <url-pattern>/estadistica</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
