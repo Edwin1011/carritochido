@@ -40,23 +40,26 @@ public class guardarmicro extends HttpServlet {
             try{
                 //Obtenemos los parametros
                 int tipo;
-                int precio,disponi;
-                String imagen,pretipo;
+                int disponi;
+                int imagen;
+                String pretipo;
                 
                 pretipo = request.getParameter("tipo");
                 
                 tipo =Integer.parseInt(pretipo);
-                imagen = request.getParameter("img");
-                precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));
                 //Hacemos el objeto
+                
+                if(tipo==1){
+                    imagen=1;
+                }else{
+                    imagen = 2;
+                }
+                
                 Micro e = new Micro();
                 e.setTipo(tipo);
+                e.setStock(disponi); 
                 e.setImagen(imagen);
-                e.setPrecio(precio);
-                e.setStock(disponi);
-                
-                
                 
                 int estado = Micro.Guardar(e);
                 

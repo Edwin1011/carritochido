@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author y700
  */
-public class guardarconexion extends HttpServlet {
+public class Squitarstockmicro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,39 +36,41 @@ public class guardarconexion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+           
             try{
                 //Obtenemos los parametros
-                int tipoc,imagen;
-                int precio,disponi;
+                int tipo;
+                int disponi_p;
+                int imagen;
                 String pretipo;
-                imagen = 0;
                 
                 pretipo = request.getParameter("tipo");
-                tipoc =Integer.parseInt(pretipo);
-                disponi =Integer.parseInt(request.getParameter("stock"));
+                
+                tipo =Integer.parseInt(pretipo);
+                disponi_p =Integer.parseInt(request.getParameter("stock"));
+                int disponi = disponi_p*-1;
                 //Hacemos el objeto
                 
-                if (tipoc == 1) {
+                if(tipo==1){
                     imagen=1;
-                }else if (tipoc == 2) {
+                }else{
                     imagen = 2;
                 }
                 
-                PConec e = new PConec();
-                
-                e.setTipo(tipoc);
+                Micro e = new Micro();
+                e.setTipo(tipo);
+                e.setStock(disponi); 
                 e.setImagen(imagen);
-                e.setStock(disponi);
+                
+                int estado = Micro.Guardar(e);
                 
                 
-                
-                int estado = PConec.Guardar(e);
                 if(estado > 0){
                     System.out.println("Se guardo");
-                    response.sendRedirect("ListaConexiones.jsp");
+                    response.sendRedirect("ListaMicro.jsp");
                 }else{
                     //No se porque esto
-                    System.out.println("ALv todo");
+                    System.out.println("chale");
                     response.sendRedirect("Error.jsp");
                 }
             }catch (Exception e){
@@ -82,5 +84,3 @@ public class guardarconexion extends HttpServlet {
     
     
 }
-    
-    

@@ -29,15 +29,13 @@
                             URL de la imagen
                         </td>
                         <td align="center">
-                            Precio
-                        </td>
-                        <td align="center">
                             Stock
                         </td>
                         <td align="center">
                             Eliminar
                         </td>
-                <%
+                <%  
+                    PConec pepe = new PConec();
                     List<PConec> lista = PConec.getAllConexiones();
                     PConec p = new PConec();
                     for (int i = 0; i < lista.size(); i++) {
@@ -50,15 +48,17 @@
                             </td>
                             <% int tipo = p.getTipo();
                                 String nombre2 = p.getNombreById(p.getTipo());
+                                
+                                int imagen = p.getImagen();
+                                String url = pepe.getImagenById(p.getImagen());
                             %>
                             <td align="center"><%=nombre2%>
 
                             </td>
-                            <td align="center"><%= p.getImagen()%>
-
-                            </td>
-                            <td align="center"><%= p.getPrecio()%>
-
+                            <td align="center">
+                                <div class="imagen">                                    
+                                    <img src="<%= url%>" alt="imagen" width="50px" height="50px">
+                                </div>
                             </td>
                             <td align="center"><%= p.getStock()%>
                             <td align="center">

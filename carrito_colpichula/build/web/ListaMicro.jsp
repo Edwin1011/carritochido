@@ -29,10 +29,7 @@
                             Descripcion
                         </td>
                         <td align="center">
-                            URL de la imagen
-                        </td>
-                        <td align="center">
-                            Precio
+                            Imagen
                         </td>
                         <td align="center">
                             Stock
@@ -41,10 +38,11 @@
                             Eliminar
                         </td>
                 <%
+                    Micro pepe = new Micro();
                     List<Micro> lista = Micro.getAllMicros();
                     Micro m = new Micro();
                     for (int i = 0; i < lista.size(); i++) {
-                            m = (Micro)lista.get(i);
+                        m = (Micro)lista.get(i);
                         
                 %>
                         <tr>
@@ -53,8 +51,11 @@
                             </td>
                             <%
                                 int nombre = m.getTipo();
-                                String descripcion = m.getCdescTipoById(m.getTipo());
-                                String nombre2 = m.getTipoById(m.getTipo());
+                                String descripcion = pepe.getCdescTipoById(m.getTipo());
+                                String nombre2 = pepe.getTipoById(m.getTipo());
+                            
+                                int imagen = m.getImagen();
+                                String url = pepe.getImagenById(m.getImagen());
                             %>
                             <td align="center"><%= nombre2 %>
 
@@ -62,11 +63,10 @@
                             <td align="center"><%= descripcion %>
 
                             </td>
-                            <td align="center"><%= m.getImagen()%>
-
-                            </td>
-                            <td align="center"><%= m.getPrecio()%>
-
+                            <td align="center">
+                                <div class="imagen">                                    
+                                    <img src="<%= url%>" alt="imagen" width="50px" height="50px">
+                                </div>
                             </td>
                             <td align="center"><%= m.getStock()%>
                             <td align="center">

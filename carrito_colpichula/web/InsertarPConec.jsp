@@ -22,13 +22,7 @@
                         <option value="1">Cableado</option>
                         <option value="2">Bluetooth</option>
                     </select>
-                </div>
-                <div class="input-contenedor">
-                    <input type="text" name="img" placeholder="Imagen url">
-                </div>
-                <div class="input-contenedor">
-                    <input type="text" name="pre" placeholder="Precio">
-                </div>
+                </div>                
                 <div class="input-contenedor">
                     <input type="text" name="stock" placeholder="Cantidad disponible">
                 </div>               

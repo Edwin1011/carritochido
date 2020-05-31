@@ -64,6 +64,10 @@
         <servlet-name>SQuitarstock</servlet-name>
         <servlet-class>Clases.SQuitarstock</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Squitarstockmicro</servlet-name>
+        <servlet-class>Clases.Squitarstockmicro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>SQuitarstock</servlet-name>
         <url-pattern>/SQuitarstock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Squitarstockmicro</servlet-name>
+        <url-pattern>/Squitarstockmicro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

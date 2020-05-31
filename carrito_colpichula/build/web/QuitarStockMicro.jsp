@@ -14,7 +14,7 @@
 
     <body>
         <h1>Insertar un microfono</h1>
-        <form method="post" action="guardarmicro" class="formulario">
+        <form method="post" action="Squitarstockmicro" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
                 <div>

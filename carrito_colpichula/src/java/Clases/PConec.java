@@ -16,7 +16,7 @@ import java.util.List;
  * @author edwin
  */
 public class PConec {
-    private String imagen;
+    private int imagen;
     private int id_conec,precio,stock,tipo;
     //Guardar a un nunevo cliente
     public static int Guardar(PConec e){
@@ -30,14 +30,13 @@ public class PConec {
         try {
             con = Conexion.getConnection();
             //call InsertarCuerpo(?, ?, ?, ?, ?)
-            String q = "call InsertarConexion (?, ?, ?, ?)";
+            String q = "call InsertarConexion (?, ?, ?)";
             
             ps = con.prepareStatement(q);
             
             ps.setInt(1, e.getTipo());
-            ps.setString(2, e.getImagen());           
-            ps.setInt(3, e.getPrecio());
-            ps.setInt(4, e.getStock());
+            ps.setInt(2, e.getImagen());
+            ps.setInt(3, e.getStock());
             
             
             estatus = ps.executeUpdate();
@@ -65,9 +64,8 @@ public class PConec {
                 
                 p.setId_conec(rs.getInt(1));
                 p.setTipo(rs.getInt(2));
-                p.setImagen(rs.getString(3));
-                p.setPrecio(rs.getInt(4));
-                p.setStock(rs.getInt(5));
+                p.setImagen(rs.getInt(3));
+                p.setStock(rs.getInt(4));
                 
                 lista.add(p);
             }
@@ -145,11 +143,44 @@ public class PConec {
         }
         return tipo_conec ;
     }
-    public String getImagen() {
+    
+    public  String getImagenById( int id_imagen ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String imagen ="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call Imagen_Conec(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_imagen);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                imagen = rs.getString(2);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return imagen ;
+    }
+    public int getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
 
