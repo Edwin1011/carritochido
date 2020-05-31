@@ -38,31 +38,32 @@ public class VerificarCliente extends HttpServlet {
             try{
                 String user,pass;
                 String usu_admin = "";
+                String admin = "admin";
                 
                 user = request.getParameter("usu");
                 pass = request.getParameter("contra");
                 //Hacemos una instancia de la clase Cliente
-                
-                if ("admin".equals(user)) {
-                    response.sendRedirect("ListaCuerpos.jsp");
+                Admin a = new Admin();
+                if (admin.equals(user)) {
+                    response.sendRedirect("index_admin.jsp");
+                    HttpSession sesion = request.getSession(true);
+                    sesion.setAttribute("usuario",a);
+                    
+                    HttpSession sesionOK = request.getSession();
+                    sesionOK.setAttribute("usuario",user);
                 }else{
                 Cliente c = new Cliente();
                 c= Cliente.verificarCliente(user, pass);
-                System.out.println("Hola1");
+                
                 
                 
                 List<Admin> lista = Admin.getAllAdmin();
                 Admin ad = new Admin();
-                System.out.println("Hola2");
                 
                 for (int i = 0; i < lista.size(); i++) {
-                    System.out.println("HOLA11");
                     ad = (Admin)lista.get(i);
-                    System.out.println("hola12");
                     usu_admin = ad.getUsuario();
-                    System.out.println("Hola3");
                 }
-                System.out.println("Hola4");
                 //Si el usuario es diferente a null(existe) se crea la sesion
                 System.out.println("Usuario del admin"+usu_admin);
                 System.out.println("Usuario del cliente"+c.getUsuario());
@@ -76,14 +77,10 @@ public class VerificarCliente extends HttpServlet {
                     
                     if (!usu_admin.equals(c.getUsuario())) {
                         //Es un cliente
-                        response.sendRedirect("prueba.jsp");
-                        System.out.println(usu_admin);
-                        System.out.println(c.getUsuario());
+                        response.sendRedirect("index_cli.jsp");
                     }else{
                         //ES un admin ya que tiene otro valor
                         response.sendRedirect("ListaCuerpos.jsp");
-                        System.out.println(usu_admin);
-                        System.out.println(c.getUsuario());
                     }
                 }else{
                     //El usuario no existe en la BD o la contra es incorrecta
