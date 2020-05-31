@@ -23,15 +23,6 @@
                         <option value="2">Bluetooth</option>
                     </select>
                 </div>
-                <div>
-                    <select name="alcance">
-                        <option value="1">1 m </option>
-                        <option value="2">1.5 m</option>
-                        <option value="3">2 m</option>
-                        <option value="4">2.5 m</option>
-                        <option value="5">3 m</option>
-                    </select>
-                </div>
                 <div class="input-contenedor">
                     <input type="text" name="img" placeholder="Imagen url">
                 </div>

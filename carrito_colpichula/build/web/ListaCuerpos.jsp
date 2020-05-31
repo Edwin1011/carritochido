@@ -32,10 +32,7 @@
                             Color
                         </td>
                         <td align="center">
-                            URL de la Imagen
-                        </td>
-                        <td align="center">
-                            Precio
+                           Imagen
                         </td>
                         <td align="center">
                             Stock
@@ -71,16 +68,20 @@
                             </td>
                             <%
                                 int color = c.getColor();
-                                String color2 = pepe.getColorById(c.getColor());                            
+                                String color2 = pepe.getColorById(c.getColor());
+                                
+                                int imagen = c.getImagen();
+                                String url = pepe.getImagenById(c.getImagen());
+
                             %>
                             <td align="center"><%= color2 %>
 
                             </td>
-                            <td align="center"><%= c.getImagen() %>
-
-                            </td>
-                            <td align="center"><%= c.getPrecio() %>
-
+                            <td align="center">
+                                <div class="imagen">
+                                    
+                                    <img src="<%= url%>" alt="imagen" width="50px" height="50px">
+                                </div>
                             </td>
                             <td align="center"><%= c.getStock()%>
 
@@ -95,6 +96,7 @@
                         </tr>                
                     </tbody>
                 </table>
+                        <a href="InsertarPCuerpo.jsp">Registrar otro cuerpo</a>
             </div>
     </body>
 </html>

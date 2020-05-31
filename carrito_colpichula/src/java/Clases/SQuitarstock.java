@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author y700
  */
-public class guardarcuerpo extends HttpServlet {
+public class SQuitarstock extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,7 +39,7 @@ public class guardarcuerpo extends HttpServlet {
            
             try{
                 //Obtenemos los parametros
-                int nombre,color,imagen,disponi;
+                int nombre,color,imagen,disponi_p;
                 String prenombre,precolor;
                 imagen =0 ;
                 
@@ -48,7 +48,8 @@ public class guardarcuerpo extends HttpServlet {
                 
                 nombre =Integer.parseInt(prenombre);
                 color =Integer.parseInt(precolor);
-                disponi =Integer.parseInt(request.getParameter("stock"));
+                disponi_p =Integer.parseInt(request.getParameter("stock"));
+                int disponi = disponi_p*-1;
                 //Hacemos el objeto
                 
                 if (nombre == 1 & color == 1) {

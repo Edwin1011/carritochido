@@ -149,8 +149,6 @@ public class Micro {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ResultSet rs2 = null;
-        int cdesc_tipo = 0;
         String desc="";
         try {
             con = Conexion.getConnection();
@@ -159,20 +157,9 @@ public class Micro {
             ps.setInt(1,id_tipo);
             rs = ps.executeQuery();
             while(rs.next()){
-                cdesc_tipo = rs.getInt(3);
+                desc = rs.getString(3); 
             }
             
-            System.out.println(cdesc_tipo);
-            System.out.println("huevos");
-            
-            String q2 = "call CdescTipo(?)";
-            ps = con.prepareStatement(q2);
-            ps.setInt(1,cdesc_tipo);
-            rs2= ps.executeQuery();
-            
-            while(rs2.next()){
-                desc = rs2.getString(2);
-            }
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println(ex.getMessage());

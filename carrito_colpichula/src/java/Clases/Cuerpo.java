@@ -16,8 +16,7 @@ import java.util.List;
  * @author edwin
  */
 public class Cuerpo {
-    private String imagen;
-    private int id_cuerpo,precio,stock,nombre,color;
+    private int id_cuerpo,precio,stock,nombre,color,imagen;
     //Guardar a un nunevo cliente
     public static int Guardar(Cuerpo e){
         
@@ -29,16 +28,14 @@ public class Cuerpo {
         
         try {
             con = Conexion.getConnection();
-            //call InsertarCuerpo(?, ?, ?, ?, ?)
-            String q = "call InsertarCuerpo(?, ?, ?, ?, ?)";
-            
+            //Usamos el InsertarCuerpo para registrar los cuerpos en la pagina
+            //String q = "call InsertarCuerpo(?, ?, ?, ?)";
+            String q = "call prueba(?, ?, ?)";
             ps = con.prepareStatement(q);
             
             ps.setInt(1, e.getNombre());
             ps.setInt(2, e.getColor());
-            ps.setString(3, e.getImagen());           
-            ps.setInt(4, e.getPrecio());
-            ps.setInt(5, e.getStock());
+            ps.setInt(3, e.getStock());
             
             estatus = ps.executeUpdate();
             
@@ -65,9 +62,8 @@ public class Cuerpo {
                 c.setId_cuerpo(rs.getInt(1));
                 c.setNombre(rs.getInt(2));
                 c.setColor(rs.getInt(3));
-                c.setImagen(rs.getString(4));
-                c.setPrecio(rs.getInt(5));
-                c.setStock(rs.getInt(6));
+                c.setImagen(rs.getInt(4));
+                c.setStock(rs.getInt(5));
                 
                 
                 lista.add(c);
@@ -185,8 +181,6 @@ public class Cuerpo {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ResultSet rs2 = null;
-        int cdesc_nombre = 0 ;
         String descripcion = "";
         try {
             con = Conexion.getConnection();
@@ -195,17 +189,7 @@ public class Cuerpo {
             ps.setInt(1,id_nombre);
             rs = ps.executeQuery();
             while(rs.next()){
-                cdesc_nombre = rs.getInt(3);
-            }
-            
-            
-            String q2 = "call CDescNombre(?)";
-            ps=con.prepareStatement(q2);
-            ps.setInt(1,cdesc_nombre);
-            rs2 = ps.executeQuery();
-            
-            while(rs2.next()){
-               descripcion = rs2.getString(2);
+                descripcion = rs.getString(3);
             }
             
         } catch (SQLException ex) {
@@ -225,12 +209,43 @@ public class Cuerpo {
         }
         return descripcion ;
     }
-    
-    public String getImagen() {
+    public  String getImagenById( int id_imagen ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String imagen ="";
+        try {
+            con = Conexion.getConnection();
+            String q = "call Imagen_Cuerpo(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_imagen);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                imagen = rs.getString(2);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return imagen ;
+    }
+    public int getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(int imagen) {
         this.imagen = imagen;
     }
     

@@ -26,9 +26,6 @@
                             Tipo de conexion
                         </td>
                         <td align="center">
-                            Alcance
-                        </td>
-                        <td align="center">
                             URL de la imagen
                         </td>
                         <td align="center">
@@ -56,12 +53,6 @@
                             %>
                             <td align="center"><%=nombre2%>
 
-                            </td>
-                            <%int alcance = p.getAlcance();
-                            String alcance2 = p.getAlcanceById(p.getAlcance());
-                            %>
-                            <td align="center"><%= alcance2 %>
-                               metros
                             </td>
                             <td align="center"><%= p.getImagen()%>
 

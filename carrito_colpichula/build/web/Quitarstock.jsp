@@ -17,7 +17,7 @@
         <%
         Cuerpo c = new Cuerpo();
         %>
-        <form method="post" action="guardarcuerpo" class="formulario">
+        <form method="post" action="SQuitarstock" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
                 <div>

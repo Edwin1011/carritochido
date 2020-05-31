@@ -39,10 +39,10 @@ public class guardarmicro extends HttpServlet {
            
             try{
                 //Obtenemos los parametros
-                int tipo,tipo_p;
+                int tipo;
                 int precio,disponi;
                 String imagen,pretipo;
-                tipo_p = 4;
+                
                 pretipo = request.getParameter("tipo");
                 
                 tipo =Integer.parseInt(pretipo);
@@ -60,28 +60,6 @@ public class guardarmicro extends HttpServlet {
                 
                 int estado = Micro.Guardar(e);
                 
-                
-                int posicion = 0;
-                int penultimo = 0;
-                
-                
-                List<Micro> lista = Micro.getAllMicros();
-                
-                penultimo = lista.size()-1;
-                Micro m = new Micro();
-                for (int i = 0; i < lista.size(); i++) {
-                    m = (Micro)lista.get(i);
-                    
-                    if (i == penultimo) {
-                        int id_final = 0;
-                        id_final = m.getId_microfono();
-                        Producto p = new Producto();
-                
-                        p.GuardarTodosP(tipo_p,id_final);
-                        int prueba = e.getId_microfono();
-                        System.out.println(prueba);
-                    }
-                }
                 
                 if(estado > 0){
                     System.out.println("Se guardo");

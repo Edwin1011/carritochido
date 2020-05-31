@@ -38,15 +38,13 @@ public class guardarconexion extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             try{
                 //Obtenemos los parametros
-                int tipoc,alca;
+                int tipoc;
                 int precio,disponi,tipo;
                 tipo = 2;
-                String imagen, pretipo,prealcance;
+                String imagen, pretipo;
                 
                 pretipo = request.getParameter("tipo");
-                prealcance = request.getParameter("alcance");
                 tipoc =Integer.parseInt(pretipo);
-                alca = Integer.parseInt(prealcance);
                 imagen = request.getParameter("img");
                 precio = Integer.parseInt(request.getParameter("pre"));
                 disponi =Integer.parseInt(request.getParameter("stock"));
@@ -54,35 +52,13 @@ public class guardarconexion extends HttpServlet {
                 PConec e = new PConec();
                 
                 e.setTipo(tipoc);
-                e.setAlcance(alca);
                 e.setImagen(imagen);
                 e.setPrecio(precio);
                 e.setStock(disponi);
                 
                 
                 
-                int estado = PConec.Guardar(e);
-                int posicion = 0;
-                int penultimo = 0;
-                
-                
-                List<PConec> lista = PConec.getAllConexiones();
-                
-                penultimo = lista.size()-1;
-                PConec c = new PConec();
-                for (int i = 0; i < lista.size(); i++) {
-                    c = (PConec)lista.get(i);
-                    
-                    if (i == penultimo) {
-                        int id_final = 0;
-                        id_final = c.getId_conec();
-                        Producto p = new Producto();
-                
-                        p.GuardarTodosP(tipo,id_final);
-                        int prueba = e.getId_conec();
-                        System.out.println(prueba);
-                    }
-                }
+                int estado = PConec.Guardar(e);                
                 
                 if(estado > 0){
                     System.out.println("Se guardo");

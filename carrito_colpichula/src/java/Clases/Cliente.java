@@ -18,6 +18,53 @@ import java.util.List;
 public class Cliente {
     private String nombre,appat,apmat,fecha,direc,direcen,tel,cel,usuario,contraseña;
     private int id;
+    //Verificar todos los usuarios
+    public static Cliente verificarCliente(String usuario, String contraseña) throws ClassNotFoundException{
+        Cliente c = null;        
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+         try {
+            con = Conexion.getConnection();
+            String q = "select * from cliente where usuario = ? and contraseña = ? ";
+            
+            ps = con.prepareStatement(q);
+            ps.setString(1, usuario);
+            ps.setString(2, contraseña);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                c = new Cliente();
+                
+                c.setId(rs.getInt("id_cliente"));
+                c.setNombre(rs.getString("nom_cli"));
+                c.setAppat(rs.getString("appat_cli"));
+                c.setApmat(rs.getString("apmat_cli"));
+                c.setFecha(rs.getString("fechaNaci_cli"));
+                c.setDirec(rs.getString("dir_cli"));
+                c.setDirecen(rs.getString("diren_cli"));
+                c.setTel(rs.getString("tel_cli"));
+                c.setCel(rs.getString("cel_cli"));
+                c.setUsuario(rs.getString("usuario"));
+                c.setContraseña(rs.getString("contraseña"));
+                
+                break;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            c=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+         return c;
+    }
     //mostrar a todos los clientes
     public static List<Cliente> getAllClientes() throws ClassNotFoundException{
         List<Cliente> lista = new ArrayList<Cliente>();

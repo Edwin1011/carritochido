@@ -56,6 +56,14 @@
         <servlet-name>EliminarContro</servlet-name>
         <servlet-class>Clases.EliminarContro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VerificarCliente</servlet-name>
+        <servlet-class>Clases.VerificarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SQuitarstock</servlet-name>
+        <servlet-class>Clases.SQuitarstock</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>EliminarContro</servlet-name>
         <url-pattern>/EliminarContro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificarCliente</servlet-name>
+        <url-pattern>/VerificarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SQuitarstock</servlet-name>
+        <url-pattern>/SQuitarstock</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
