@@ -109,7 +109,7 @@
                         <%=elemento%>
                     </td>
                     <td>
-                        <a href="index_cli.jsp?item=<%= elemento%>"> Eliminar el elemento <%= elemento%> </a>
+                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elemento%> </a>
                     </td>
                     <%
                     }
