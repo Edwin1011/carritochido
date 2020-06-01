@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author y700
  */
-public class guardarcontro extends HttpServlet {
+public class Squitarstockconec extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,24 +39,38 @@ public class guardarcontro extends HttpServlet {
            
             try{
                 //Obtenemos los parametros
-                int precio,disponi;
-                String imagen;
+                int tipo;
+                int disponi_p;
+                int imagen;
+                String pretipo;
                 
-                disponi =Integer.parseInt(request.getParameter("stock"));
+                pretipo = request.getParameter("tipo");
+                
+                tipo =Integer.parseInt(pretipo);
+                disponi_p =Integer.parseInt(request.getParameter("stock"));
+                int disponi = disponi_p*-1;
                 //Hacemos el objeto
-                Contro e = new Contro();
-                e.setStock(disponi);
                 
+                if(tipo==1){
+                    imagen=1;
+                }else{
+                    imagen = 2;
+                }
                 
+                PConec e = new PConec();
+                e.setTipo(tipo);
+                e.setStock(disponi); 
+                e.setImagen(imagen);
                 
-                int estado = Contro.Guardar(e);
+                int estado = PConec.Guardar(e);
+                
                 
                 if(estado > 0){
                     System.out.println("Se guardo");
-                    response.sendRedirect("ListaControles.jsp");
+                    response.sendRedirect("ListaConexiones.jsp");
                 }else{
                     //No se porque esto
-                    System.out.println("ALv todo");
+                    System.out.println("chale");
                     response.sendRedirect("Error.jsp");
                 }
             }catch (Exception e){
@@ -70,5 +84,3 @@ public class guardarcontro extends HttpServlet {
     
     
 }
-    
-    

@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author y700
  */
-public class guardarcontro extends HttpServlet {
+public class Squitarstockcontro extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,11 @@ public class guardarcontro extends HttpServlet {
            
             try{
                 //Obtenemos los parametros
-                int precio,disponi;
+                int precio,disponi_p;
                 String imagen;
-                
-                disponi =Integer.parseInt(request.getParameter("stock"));
+                int disponi;
+                disponi_p =Integer.parseInt(request.getParameter("stock"));
+                disponi = disponi_p * -1;
                 //Hacemos el objeto
                 Contro e = new Contro();
                 e.setStock(disponi);

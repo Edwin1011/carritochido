@@ -14,7 +14,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de todos los clientes</h1>
+        
+        <h1>Lista de todos los cuerpos</h1>
         <div class="megaconteiner">
                 <h1>Cuerpos</h1>
                 <table>
@@ -33,6 +34,9 @@
                         </td>
                         <td align="center">
                            Imagen
+                        </td>
+                        <td align="center">
+                            Precio
                         </td>
                         <td align="center">
                             Stock
@@ -72,7 +76,8 @@
                                 
                                 int imagen = c.getImagen();
                                 String url = pepe.getImagenById(c.getImagen());
-
+                                float precio = c.getNombre();
+                                float precio2 = pepe.getCprecioNById(c.getNombre());
                             %>
                             <td align="center"><%= color2 %>
 
@@ -82,6 +87,9 @@
                                     
                                     <img src="<%= url%>" alt="imagen" width="50px" height="50px">
                                 </div>
+                            </td>
+                            <td align="center">
+                                <%= precio2 %>
                             </td>
                             <td align="center"><%= c.getStock()%>
 
@@ -97,6 +105,74 @@
                     </tbody>
                 </table>
                         <a href="InsertarPCuerpo.jsp">Registrar otro cuerpo</a>
+                        
+        <form method="post" action="SQuitarstock" class="formulario">
+            <h1>ALterar stocks</h1>
+            <div class="contenedor">
+                <div>
+                    <select name="name">
+                        <option value="1"> IN-EAR </option>
+                        <option value="2"> ON-EAR </option>
+                        <option value="3"> OVER-EAR</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="col">
+                        <option value="1">Amarillo</option>
+                        <option value="2">Azul</option>
+                        <option value="3">Azul Cielo</option>
+                        <option value="4">Blanco</option>
+                        <option value="5">Lila</option>
+                        <option value="6">Rosa</option>
+                        <option value="7">Naranja</option>
+                        <option value="8">Negro</option>
+                        <option value="9">Rojo</option>
+                        <option value="10">Verde</option>
+                    </select>
+                </div>
+                <div class="input-contenedor">
+                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                </div>               
+                <input type="submit" value="Quitar" class="button">
+                <br>
+                <br>
+                
+            </div>
+        </form>
+                        
+        <form method="post" action="guardarcuerpo" class="formulario">
+            <h1>Agregar stocks</h1>
+            <div class="contenedor">
+                <div>
+                    <select name="name">
+                        <option value="1"> IN-EAR </option>
+                        <option value="2"> ON-EAR </option>
+                        <option value="3"> OVER-EAR</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="col">
+                        <option value="1">Amarillo</option>
+                        <option value="2">Azul</option>
+                        <option value="3">Azul Cielo</option>
+                        <option value="4">Blanco</option>
+                        <option value="5">Lila</option>
+                        <option value="6">Rosa</option>
+                        <option value="7">Naranja</option>
+                        <option value="8">Negro</option>
+                        <option value="9">Rojo</option>
+                        <option value="10">Verde</option>
+                    </select>
+                </div>
+                <div class="input-contenedor">
+                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                </div>               
+                <input type="submit" value="Agregar" class="button">
+                <br>
+                <br>
+                
+            </div>
+        </form>
             </div>
     </body>
 </html>

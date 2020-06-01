@@ -17,7 +17,8 @@ import java.util.List;
  */
 public class Micro {
     private int imagen;
-    private int id_microfono,precio,stock,tipo;
+    private int id_microfono,stock,tipo;
+    private float precio;
     //Guardar a un nunevo cliente
     public static int Guardar(Micro e){
         
@@ -176,6 +177,39 @@ public class Micro {
         }
         return desc ;
     }
+     public  float getCPrecioTiById( int id_tipo ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        float precio=0;
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescTNombreMi(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_tipo);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                precio = rs.getFloat(4); 
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            System.out.println(id_tipo);
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return precio ;
+    }
      public  String getImagenById( int id_imagen ) throws ClassNotFoundException{
         Connection con = null;
         PreparedStatement ps = null;
@@ -218,11 +252,11 @@ public class Micro {
 
    
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 

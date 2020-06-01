@@ -17,7 +17,8 @@ import java.util.List;
  */
 public class PConec {
     private int imagen;
-    private int id_conec,precio,stock,tipo;
+    private int id_conec,stock,tipo;
+    private float precio;
     //Guardar a un nunevo cliente
     public static int Guardar(PConec e){
         
@@ -30,13 +31,13 @@ public class PConec {
         try {
             con = Conexion.getConnection();
             //call InsertarCuerpo(?, ?, ?, ?, ?)
-            String q = "call InsertarConexion (?, ?, ?)";
-            
+            //Usamoe l de InsertarConexion apra lo sproductis
+            //String q = "call InsertarConexion (?, ?, ?)";
+            String q = "call ActCoenc(?, ?)";
             ps = con.prepareStatement(q);
             
             ps.setInt(1, e.getTipo());
-            ps.setInt(2, e.getImagen());
-            ps.setInt(3, e.getStock());
+            ps.setInt(2, e.getStock());
             
             
             estatus = ps.executeUpdate();
@@ -176,6 +177,41 @@ public class PConec {
         }
         return imagen ;
     }
+    public  float getPrecioById( int id_tipo ) throws ClassNotFoundException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        float precio=0;
+        try {
+            con = Conexion.getConnection();
+            String q = "call DescTipoConec(?)";
+            ps = con.prepareStatement(q);
+            ps.setInt(1,id_tipo);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                precio = rs.getFloat(3);
+            }
+            
+            System.out.println(id_tipo);
+            System.out.println("huevos");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            System.out.println(id_tipo);
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
+            }
+        }
+        return precio ;
+    }
     public int getImagen() {
         return imagen;
     }
@@ -185,11 +221,11 @@ public class PConec {
     }
 
     
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 

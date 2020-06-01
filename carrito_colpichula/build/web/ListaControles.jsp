@@ -14,7 +14,30 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Lista de todos los clientes</h1>
+        
+        <%
+            String usuario = "";
+            HttpSession sesionOK = request.getSession();
+            if(sesionOK.getAttribute("usuario") == null){
+                
+            
+        %>
+        <jsp:forward page="index.jsp">
+            <jsp:param name="error" value="Es obligatorio identificarse"/>
+        </jsp:forward>
+        <%
+            }else{
+                usuario = (String)sesionOK.getAttribute("usuario");
+            }
+        %>
+        <h1>Index del admin <%= usuario%></h1>
+        <a href="index_admin.jsp">Lista de los cuerpos</a>
+        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
+        <a href="ListaMicro.jsp">Lista de los microfonos</a>
+        <a href="ListaControles.jsp">Lista de los controladores</a>
+        <br>
+        <br>
+        <h1>Lista de todos los controladores</h1>
         <div class="megaconteiner">
                 <h1>Conexiones</h1>
                 <table>
@@ -51,7 +74,8 @@
                             <td align="center"><%= c.getDesc()%>
 
                             </td>
-                            <td align="center"><%= c.getImagen() %>
+                            <td align="center">
+                                <img src="<%= c.getImagen() %>" width="50px" height="50px"> 
 
                             </td>
                             <td align="center"><%= c.getPrecio()%>
@@ -67,6 +91,32 @@
                         </tr>                
                     </tbody>
                 </table>
+                        <form method="post" action="Squitarstockcontro" class="formulario">
+            <h1>Quitar Stock</h1>
+            <div class="contenedor">
+                
+                <div class="input-contenedor">
+                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                </div>               
+                <input type="submit" value="Quitar" class="button">
+                <br>
+                <br>
+                
+            </div>
+        </form>
+                         <form method="post" action="guardarcontro" class="formulario">
+            <h1>Agregar Stock</h1>
+            <div class="contenedor">
+                
+                <div class="input-contenedor">
+                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                </div>               
+                <input type="submit" value="Agregar" class="button">
+                <br>
+                <br>
+                
+            </div>
+        </form>
             </div>
     </body>
 </html>

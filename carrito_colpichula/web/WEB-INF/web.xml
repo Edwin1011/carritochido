@@ -76,6 +76,18 @@
         <servlet-name>estadistica</servlet-name>
         <servlet-class>Clases.estadistica</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Squitarstockconec</servlet-name>
+        <servlet-class>Clases.Squitarstockconec</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Squitarstockcontro</servlet-name>
+        <servlet-class>Clases.Squitarstockcontro</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>carrito</servlet-name>
+        <servlet-class>carrito</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -151,6 +163,18 @@
     <servlet-mapping>
         <servlet-name>estadistica</servlet-name>
         <url-pattern>/estadistica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Squitarstockconec</servlet-name>
+        <url-pattern>/Squitarstockconec</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Squitarstockcontro</servlet-name>
+        <url-pattern>/Squitarstockcontro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>carrito</servlet-name>
+        <url-pattern>/carrito</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

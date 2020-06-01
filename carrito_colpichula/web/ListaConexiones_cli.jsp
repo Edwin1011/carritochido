@@ -14,7 +14,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
         <%
             String usuario = "";
             HttpSession sesionOK = request.getSession();
@@ -30,11 +29,11 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1>Index del cliente <%= usuario%></h1>
-        <a href="index_cli.jsp">Lista de los cuerpos</a>
-        <a href="ListaConexiones_cli.jsp">Lista de las conexiones</a>
-        <a href="ListaMicro_cli.jsp">Lista de los microfonos</a>
-        <a href="ListaControles_cli.jsp">Lista de los controladores</a>
+        <h1>Index del admin <%= usuario%></h1>
+        <a href="index_admin.jsp">Lista de los cuerpos</a>
+        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
+        <a href="ListaMicro.jsp">Lista de los microfonos</a>
+        <a href="ListaControles.jsp">Lista de los controladores</a>
         <br>
         <br>
         <br>
@@ -54,9 +53,6 @@
                         </td>
                         <td align="center">
                             Stock
-                        </td>
-                        <td align="center">
-                            Eliminar
                         </td>
                 <%  
                     PConec pepe = new PConec();
@@ -84,16 +80,14 @@
                                     <img src="<%= url%>" alt="imagen" width="50px" height="50px">
                                 </div>
                             </td>
-                            <td align="center"><%= p.getStock()%>
-                            <td align="center">
-                                <a href="EliminarConec?id=<%= p.getId_conec()%>" class="link">Eliminar el id <%= p.getId_conec()%></a>
-                            </td>
+                            <td align="center"><%= p.getStock()%></td>
                         <%
                             }
                         %>
                         </tr>                
                     </tbody>
                 </table>
+                        
             </div>
     </body>
 </html>

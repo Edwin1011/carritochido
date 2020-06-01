@@ -30,10 +30,12 @@
             }
         %>
         <h1>Index del admin <%= usuario%></h1>
-        <a href="index_cli.jsp">Lista de los cuerpos</a>
-        <a href="ListaConexiones_cli.jsp">Lista de las conexiones</a>
-        <a href="ListaMicro_cli.jsp">Lista de los microfonos</a>
-        <a href="ListaControles_cli.jsp">Lista de los controladores</a>
+        <a href="index_admin.jsp">Lista de los cuerpos</a>
+        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
+        <a href="ListaMicro.jsp">Lista de los microfonos</a>
+        <a href="ListaControles.jsp">Lista de los controladores</a>
+        <a href="ListaCli.jsp">Ver todos los clientes</a>
+        <a href="graficas.jsp">Ver las graficas de ventas-fechas</a>
         <br>
         <br>
         <br>
@@ -57,10 +59,10 @@
                            Imagen
                         </td>
                         <td align="center">
-                            Stock
-                        </td>                        
+                           Precio
+                        </td>
                         <td align="center">
-                            Eliminar
+                            Stock
                         </td>
                 <%
                     Cuerpo pepe = new Cuerpo();
@@ -94,7 +96,9 @@
                                 
                                 int imagen = c.getImagen();
                                 String url = pepe.getImagenById(c.getImagen());
-
+                                
+                                int pre = c.getNombre();
+                                float precio = pepe.getCprecioNById(c.getNombre());
                             %>
                             <td align="center"><%= color2 %>
 
@@ -105,11 +109,11 @@
                                     <img src="<%= url%>" alt="imagen" width="50px" height="50px">
                                 </div>
                             </td>
-                            <td align="center"><%= c.getStock()%>
+                            <td align="center"><%= precio %>
 
                             </td>
-                            <td align="center">
-                                <a href="EliminarCuerpo?id=<%= c.getId_cuerpo()%>" class="link">Eliminar el id <%= c.getId_cuerpo() %> </a>
+                            <td align="center"><%= c.getStock()%>
+
                             </td>
                         <%
                             
@@ -117,8 +121,74 @@
                         %>
                         </tr>                
                     </tbody>
-                </table>
-                        <a href="InsertarPCuerpo.jsp">Registrar otro cuerpo</a>
+                </table>                        
+                        <form method="post" action="SQuitarstock" class="formulario">
+            <h1>ALterar stocks</h1>
+            <div class="contenedor">
+                <div>
+                    <select name="name">
+                        <option value="1"> IN-EAR </option>
+                        <option value="2"> ON-EAR </option>
+                        <option value="3"> OVER-EAR</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="col">
+                        <option value="1">Amarillo</option>
+                        <option value="2">Azul</option>
+                        <option value="3">Azul Cielo</option>
+                        <option value="4">Blanco</option>
+                        <option value="5">Lila</option>
+                        <option value="6">Rosa</option>
+                        <option value="7">Naranja</option>
+                        <option value="8">Negro</option>
+                        <option value="9">Rojo</option>
+                        <option value="10">Verde</option>
+                    </select>
+                </div>
+                <div class="input-contenedor">
+                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                </div>               
+                <input type="submit" value="Quitar" class="button">
+                <br>
+                <br>
+                
+            </div>
+        </form>
+                        
+        <form method="post" action="guardarcuerpo" class="formulario">
+            <h1>Agregar stocks</h1>
+            <div class="contenedor">
+                <div>
+                    <select name="name">
+                        <option value="1"> IN-EAR </option>
+                        <option value="2"> ON-EAR </option>
+                        <option value="3"> OVER-EAR</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="col">
+                        <option value="1">Amarillo</option>
+                        <option value="2">Azul</option>
+                        <option value="3">Azul Cielo</option>
+                        <option value="4">Blanco</option>
+                        <option value="5">Lila</option>
+                        <option value="6">Rosa</option>
+                        <option value="7">Naranja</option>
+                        <option value="8">Negro</option>
+                        <option value="9">Rojo</option>
+                        <option value="10">Verde</option>
+                    </select>
+                </div>
+                <div class="input-contenedor">
+                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                </div>               
+                <input type="submit" value="Agregar" class="button">
+                <br>
+                <br>
+                
+            </div>
+        </form>
             </div>
         
     </body>

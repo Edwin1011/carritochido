@@ -17,7 +17,8 @@ import java.util.List;
  */
 public class Contro {
     private String imagen,desc;
-    private int id_cont,precio,stock;
+    private int id_cont,stock;
+    private float precio;
     //Guardar a un nunevo cliente
     public static int Guardar(Contro e){
         
@@ -30,13 +31,12 @@ public class Contro {
         try {
             con = Conexion.getConnection();
             //call InsertarCuerpo(?, ?, ?, ?, ?)
-            String q = "call InsertarControlador (?, ?, ?)";
-            
+            //Se uso apra insertar un controlador
+            //String q = "call InsertarControlador (?, ?, ?)";
+            String q = "call ActContro(?)";
             ps = con.prepareStatement(q);
             
-            ps.setString(1, e.getImagen());           
-            ps.setInt(2, e.getPrecio());
-            ps.setInt(3, e.getStock());
+            ps.setInt(1, e.getStock());
             
             
             estatus = ps.executeUpdate();
@@ -65,7 +65,7 @@ public class Contro {
                 c.setId_cont(rs.getInt(1));
                 c.setDesc(rs.getString(2));
                 c.setImagen(rs.getString(3));
-                c.setPrecio(rs.getInt(4));
+                c.setPrecio(rs.getFloat(4));
                 c.setStock(rs.getInt(5));
                 
                 lista.add(c);
@@ -120,11 +120,11 @@ public class Contro {
 
     
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
