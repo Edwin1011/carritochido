@@ -4,7 +4,7 @@
     Author     : edwin
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" language="java" import="java.util.*, Clases.*" session="true" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +12,22 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Detalles de un cuerpo</h1>
+        <%
+            String usuario = "";
+            HttpSession sesionOK = request.getSession();
+            if(sesionOK.getAttribute("usuario") == null){
+                
+            
+        %>
+        <jsp:forward page="index.jsp">
+            <jsp:param name="error" value="Es obligatorio identificarse"/>
+        </jsp:forward>
+        <%
+            }else{
+                usuario = (String)sesionOK.getAttribute("usuario");
+            }
+        %>
+        <h1>Detalles de un cuerpo, usuario: <%= usuario%></h1>
         <%
             int id_producto,stock_cuerpo;
             float precio_cuerpo;
@@ -26,6 +41,8 @@
             url_cuerpo = request.getParameter("url");
             precio_cuerpo = Float.parseFloat(request.getParameter("precio"));
             stock_cuerpo = Integer.parseInt(request.getParameter("stock"));
+            
+            int clas_cuerpo = 1;
         %>
         
         <img src="<%= url_cuerpo %>" width="100px" height="100px"><br>
@@ -37,10 +54,10 @@
         Stock: <%= stock_cuerpo %><br>
         
         
-        <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_cuerpo%>&nombre=<%= nombre_cuerpo%>&color=<%= color_cuerpo%>">
+        <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_cuerpo%>&nombre=<%= nombre_cuerpo%>&color=<%= color_cuerpo%>&tipo=<%= clas_cuerpo%>&stock=<%= stock_cuerpo%>&precio=<%= precio_cuerpo%>">
             Cantidad a comprar:<br>
             <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-            <input typue="button" value="Agregar al carrito">            
+            <input type="submit" value="Agregar al carrito">            
         </form>
     </body>
 </html>

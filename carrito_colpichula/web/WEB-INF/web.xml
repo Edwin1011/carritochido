@@ -88,6 +88,14 @@
         <servlet-name>carrito</servlet-name>
         <servlet-class>carrito</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarPCarrito</servlet-name>
+        <servlet-class>Clases.EliminarPCarrito</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Eliminardelcarro</servlet-name>
+        <servlet-class>Clases.Eliminardelcarro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -175,6 +183,14 @@
     <servlet-mapping>
         <servlet-name>carrito</servlet-name>
         <url-pattern>/carrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarPCarrito</servlet-name>
+        <url-pattern>/EliminarPCarrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Eliminardelcarro</servlet-name>
+        <url-pattern>/Eliminardelcarro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

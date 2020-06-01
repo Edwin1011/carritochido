@@ -274,6 +274,43 @@ public class Cuerpo {
         }
         return imagen ;
     }
+    public static Cuerpo gelProductoById (int id) throws ClassNotFoundException{
+        Producto p = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Cuerpo c = new Cuerpo();
+        try {
+            
+            con = Conexion.getConnection();
+            String q = "select * from cuerpo where id_cuerpo = ?";
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                               
+                c.setId_cuerpo(rs.getInt(1));
+                c.setNombre(rs.getInt(2));
+                c.setColor(rs.getInt(3));
+                c.setImagen(rs.getInt(4));
+                c.setStock(rs.getInt(5));
+                
+            }
+        } catch(SQLException ex){
+            ex.printStackTrace();
+            p=null;
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return c;
+    }
     public int getImagen() {
         return imagen;
     }

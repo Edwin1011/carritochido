@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import Clases.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Vector;
@@ -32,7 +33,58 @@ public class carrito extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+            try{
+                System.out.println("HOLa1");
+                HttpSession sesion = request.getSession();
+                Vector<DetalleCompra> vectorDetalles = null;
+                
+                if (sesion.getAttribute("detalleCompra") != null) {
+                    //significa que ya tiene un detalle de compra(carrito)
+                    vectorDetalles = (Vector<DetalleCompra>)sesion.getAttribute("detalleCompra");
+                    System.out.println("Hola2");
+                }else{
+                    //SI no existe se crea una nueva
+                    vectorDetalles = new Vector<DetalleCompra>();
+                    System.out.println("Hola3");
+                }
+                
+                //parametros:
+                int clasificador = Integer.parseInt(request.getParameter("tipo"));
+                System.out.println("El holaaaa"+clasificador);
+                int id_prod = Integer.parseInt(request.getParameter("id_prod"));
+                float precio = Float.parseFloat(request.getParameter("precio"));
+                int stock = Integer.parseInt(request.getParameter("stock"));
+                int cantidad = Integer.parseInt(request.getParameter("cant"));
+                
+                System.out.println("Hola4");
+                if (stock<=cantidad) {
+                    System.out.println("Hola5");
+                    response.sendRedirect("Error.jsp");
+                }else{
+                    System.out.println("Hola6");
+                    float subtotal = cantidad*precio;
+                    
+                    DetalleCompra de = new DetalleCompra();
+                    
+                    System.out.println("Hola7");
+                    de.setItem(vectorDetalles.size()+1);
+                    de.setCantidad_compra(cantidad);
+                    de.setId_producto(id_prod);
+                    de.setSubtotal_compra(subtotal);
+                    de.setTipo_prod(clasificador);
+                    
+                    System.out.println("Hola8");
+                    vectorDetalles.add(de);
+                    System.out.println("Hola9");
+                    sesion.setAttribute("detalleCompra", vectorDetalles);
+                    System.out.println("10");
+                    response.sendRedirect("VerCarrito.jsp");
+                    System.out.println("11");
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+                response.sendRedirect("Error.jsp");
+            }
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -43,6 +95,9 @@ public class carrito extends HttpServlet {
             out.println("<h1>Servlet carrito at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+        }catch(Exception e){
+            e.printStackTrace();
+            response.sendRedirect("Error.jsp");
         }
     }
 
