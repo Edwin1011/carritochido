@@ -242,6 +242,41 @@ public class Micro {
         }
         return imagen ;
     }
+     public static Micro gelProductoById (int id) throws ClassNotFoundException{
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Micro m = new Micro();
+        try {
+            
+            con = Conexion.getConnection();
+            String q = "select * from microfono where id_microfono = ?";
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                               
+                m.setId_microfono(rs.getInt(1));
+                m.setTipo(rs.getInt(2));
+                m.setImagen(rs.getInt(3));
+                m.setStock(rs.getInt(4));
+                
+            }
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return m;
+    }
     public int getImagen() {
         return imagen;
     }

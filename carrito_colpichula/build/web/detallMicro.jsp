@@ -12,7 +12,24 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Detalles de un micro</h1>
+        
+        
+        <%
+            String usuario = "";
+            HttpSession sesionOK = request.getSession();
+            if(sesionOK.getAttribute("usuario") == null){
+                
+            
+        %>
+        <jsp:forward page="index.jsp">
+            <jsp:param name="error" value="Es obligatorio identificarse"/>
+        </jsp:forward>
+        <%
+            }else{
+                usuario = (String)sesionOK.getAttribute("usuario");
+            }
+        %>
+        <h1>Detalles de un micro del usuario: <%= usuario%></h1>
         <%
             int id_producto,stock_micro;
             float precio_micro;
@@ -25,6 +42,7 @@
             url_micro = request.getParameter("url");
             precio_micro = Float.parseFloat(request.getParameter("precio"));
             stock_micro = Integer.parseInt(request.getParameter("stock"));
+            int clas_micro = 2;
         %>
         
         <img src="<%= url_micro %>" width="100px" height="100px"><br>
@@ -33,5 +51,10 @@
         Descripcion: <%= desc_micro %><br>
         Precio: <%= precio_micro %><br>
         Stock: <%= stock_micro %><br>
+        <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_micro%>&stock=<%= stock_micro%>&precio=<%= precio_micro%>&tipo=<%= clas_micro%>">
+            Cantidad a comprar:<br>
+            <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
+        <input type="submit" value="Agregar al carrito">  
+        </form>
     </body>
 </html>

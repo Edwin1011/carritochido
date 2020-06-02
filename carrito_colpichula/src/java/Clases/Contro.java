@@ -109,6 +109,42 @@ public class Contro {
         }
         return estatus;
     }
+    public static Contro gelProductoById (int id) throws ClassNotFoundException{
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Contro c = new Contro();
+        try {
+            
+            con = Conexion.getConnection();
+            String q = "select * from controladores where id_cont = ?";
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                               
+                c.setId_cont(rs.getInt(1));
+                c.setDesc(rs.getString(2));
+                c.setImagen(rs.getString(3));
+                c.setPrecio(rs.getInt(4));
+                c.setStock(rs.getInt(5));
+                
+            }
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return c;
+    }
 
     public String getImagen() {
         return imagen;

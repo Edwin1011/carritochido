@@ -212,6 +212,40 @@ public class PConec {
         }
         return precio ;
     }
+    public static PConec gelProductoById (int id) throws ClassNotFoundException{
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        PConec c = new PConec();
+        try {
+            
+            con = Conexion.getConnection();
+            String q = "select * from conexion where id_conec = ?";
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                c.setId_conec(rs.getInt(1));
+                c.setTipo(rs.getInt(2));
+                c.setImagen(rs.getInt(3));
+                c.setStock(rs.getInt(4));
+                
+            }
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return c;
+    }
     public int getImagen() {
         return imagen;
     }

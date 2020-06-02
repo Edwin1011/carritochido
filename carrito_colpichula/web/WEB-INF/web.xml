@@ -96,6 +96,10 @@
         <servlet-name>Eliminardelcarro</servlet-name>
         <servlet-class>Clases.Eliminardelcarro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>realizarcompra</servlet-name>
+        <servlet-class>Clases.realizarcompra</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -191,6 +195,10 @@
     <servlet-mapping>
         <servlet-name>Eliminardelcarro</servlet-name>
         <url-pattern>/Eliminardelcarro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>realizarcompra</servlet-name>
+        <url-pattern>/realizarcompra</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

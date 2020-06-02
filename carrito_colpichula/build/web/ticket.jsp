@@ -27,7 +27,7 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1  >Carrito del usuario <%= usuario%></h1>
+        <h1  >Ticket de la compra del carrito del usuario <%= usuario%></h1>
         
         <%
                 //Obtenemos el vector de detalles de la sesion
@@ -59,9 +59,6 @@
                 </td>
                 <td>
                     Numero de elemento
-                </td>
-                <td>
-                    ELiminar
                 </td>
                 <%
                         DetalleCompra de = new DetalleCompra();
@@ -112,9 +109,6 @@
                     <td>
                         <%=elementofront +1%>
                     </td>
-                    <td>
-                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
-                    </td>
                     <%
                     }else if(tipo==4){
                         String elemento = String.valueOf(i);
@@ -149,10 +143,6 @@
                     <td>
                         <%=elementofront +1%>
                     </td>
-                    <td>
-                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
-                    </td>
-                    
                     <%
                         }else if(tipo==2){
                         String elemento = String.valueOf(i);
@@ -187,9 +177,6 @@ int elementofront= Integer.parseInt(elemento);
                     </td>
                     <td>
                         <%=elementofront  +1%>
-                    </td>
-                    <td>
-                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
                     </td>
                     <%
                      }else if(tipo==3){
@@ -228,9 +215,6 @@ int elementofront= Integer.parseInt(elemento);
                     <td>
                         <%=elementofront +1%>
                     </td>
-                    <td>
-                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
-                    </td>
                     <%
                     }
                     }
@@ -238,8 +222,8 @@ int elementofront= Integer.parseInt(elemento);
                 </tr>
                 </tbody>
             </table>
-                <form method = "post" action="ticket.jsp">
-                   <input type="submit" value="Realizar la compra">  
+                <form method = "post" action="realizarcompra">
+                   <input type="submit" value="Realizar la compra2">  
                 </form>
     </body>
 </html>

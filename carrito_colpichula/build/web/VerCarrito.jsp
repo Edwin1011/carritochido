@@ -66,6 +66,9 @@
                 <%
                         DetalleCompra de = new DetalleCompra();
                         Cuerpo pepe = new Cuerpo();
+                        Contro pepe2 = new Contro();
+                        Micro pepe3 = new Micro();
+                        PConec pepe4 = new PConec();
                         for(int i = 0; i < vectorDetalles.size(); i++ ){
                             de = (DetalleCompra)vectorDetalles.get(i);                            
                             
@@ -76,6 +79,7 @@
                                 String elemento = String.valueOf(i);
                                     //Cuerpo
                                     Cuerpo c = new Cuerpo();
+                                    
                                     c = Cuerpo.gelProductoById(de.getId_producto());
                                     String url;
                                     int pre;
@@ -83,7 +87,7 @@
                                     float precio = pepe.getCprecioNById(pre);
                                     
                                     url = pepe.getImagenById(c.getImagen());
-                                
+                                int elementofront= Integer.parseInt(elemento);
                 %>
                 <tr>
                     <td>
@@ -106,18 +110,136 @@
                         <%= de.getSubtotal_compra() %>
                     </td>
                     <td>
-                        <%=elemento%>
+                        <%=elementofront +1%>
                     </td>
                     <td>
-                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elemento%> </a>
+                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
+                    </td>
+                    <%
+                    }else if(tipo==4){
+                        String elemento = String.valueOf(i);
+                        Contro c2 = new Contro();
+                        c2= Contro.gelProductoById(de.getId_producto());
+                        c2.getId_cont();
+                        String url = c2.getImagen();
+                        float precio = c2.getPrecio();
+                        int elementofront= Integer.parseInt(elemento);
+                    %>
+                    
+                    <tr>
+                    <td>
+                        <img src="<%= url%>" width="50px" height="50px">
+                    </td>
+                     <td>
+                        <%= tipo%>
+                    </td>
+                        
+                    <td>
+                        <%= c2.getId_cont()%>
+                    </td>
+                    <td>
+                        <%= precio%>
+                    </td>
+                    <td>
+                        <%= de.getCantidad_compra() %>
+                    </td>
+                    <td>
+                        <%= de.getSubtotal_compra() %>
+                    </td>
+                    <td>
+                        <%=elementofront +1%>
+                    </td>
+                    <td>
+                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
+                    </td>
+                    
+                    <%
+                        }else if(tipo==2){
+                        String elemento = String.valueOf(i);
+                        Micro m = new Micro();
+                        m= Micro.gelProductoById(de.getId_producto());
+                        m.getId_microfono();
+                        String url =pepe3.getImagenById( m.getImagen());
+                        int pre = m.getTipo();
+                        float precio = pepe3.getCPrecioTiById(pre);
+int elementofront= Integer.parseInt(elemento);
+                    %>
+                    
+                    <tr>
+                    <td>
+                        <img src="<%= url%>" width="50px" height="50px">
+                    </td>
+                     <td>
+                        <%= tipo%>
+                    </td>
+                        
+                    <td>
+                        <%= m.getId_microfono()%>
+                    </td>
+                    <td>
+                        <%= precio%>
+                    </td>
+                    <td>
+                        <%= de.getCantidad_compra() %>
+                    </td>
+                    <td>
+                        <%= de.getSubtotal_compra() %>
+                    </td>
+                    <td>
+                        <%=elementofront  +1%>
+                    </td>
+                    <td>
+                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
+                    </td>
+                    <%
+                     }else if(tipo==3){
+                     String elemento = String.valueOf(i);
+                        PConec c3 = new PConec();
+                        c3= PConec.gelProductoById(de.getId_producto());
+                        c3.getId_conec();
+                        String url =pepe4.getImagenById( c3.getImagen());
+                        int pre = c3.getTipo();
+                        float precio = pepe4.getPrecioById(pre);
+                        int elementofront= Integer.parseInt(elemento);
+                        
+                    
+                    %>
+                    
+                    <tr>
+                    <td>
+                        <img src="<%= url%>" width="50px" height="50px">
+                    </td>
+                     <td>
+                        <%= tipo%>
+                    </td>
+                        
+                    <td>
+                        <%= c3.getId_conec()%>
+                    </td>
+                    <td>
+                        <%= precio%>
+                    </td>
+                    <td>
+                        <%= de.getCantidad_compra() %>
+                    </td>
+                    <td>
+                        <%= de.getSubtotal_compra() %>
+                    </td>
+                    <td>
+                        <%=elementofront +1%>
+                    </td>
+                    <td>
+                        <a href="Eliminardelcarro?item=<%= elemento%>"> Eliminar el elemento <%= elementofront +1%> </a>
                     </td>
                     <%
                     }
-}
+                    }
                     %>
-                    
                 </tr>
                 </tbody>
             </table>
+                <form method = "post" action="ticket.jsp">
+                   <input type="submit" value="Realizar la compra">  
+                </form>
     </body>
 </html>

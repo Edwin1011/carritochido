@@ -275,7 +275,7 @@ public class Cuerpo {
         return imagen ;
     }
     public static Cuerpo gelProductoById (int id) throws ClassNotFoundException{
-        Producto p = null;
+        
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -299,7 +299,6 @@ public class Cuerpo {
             }
         } catch(SQLException ex){
             ex.printStackTrace();
-            p=null;
         }finally{
             try{
                 rs.close();
