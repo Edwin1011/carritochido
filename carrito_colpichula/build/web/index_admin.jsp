@@ -36,6 +36,8 @@
         <a href="ListaControles.jsp">Lista de los controladores</a>
         <a href="ListaCli.jsp">Ver todos los clientes</a>
         <a href="graficas.jsp">Ver las graficas de ventas-fechas</a>
+        <a href="CerrarSesion">Cerrar Sesion</a>
+        <a href="Perfil_admin.jsp">Ver mi perfil</a>
         <br>
         <br>
         <br>

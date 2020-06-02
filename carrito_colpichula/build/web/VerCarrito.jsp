@@ -69,6 +69,7 @@
                         Contro pepe2 = new Contro();
                         Micro pepe3 = new Micro();
                         PConec pepe4 = new PConec();
+                        float apagar = 0; 
                         for(int i = 0; i < vectorDetalles.size(); i++ ){
                             de = (DetalleCompra)vectorDetalles.get(i);                            
                             
@@ -76,6 +77,7 @@
                             int tipo = de.getTipo_prod();
                             System.out.println("GOLA"+tipo);
                             if (tipo ==1) {
+                                String tipo2 = "Cuerpo";
                                 String elemento = String.valueOf(i);
                                     //Cuerpo
                                     Cuerpo c = new Cuerpo();
@@ -85,7 +87,9 @@
                                     int pre;
                                     pre = c.getNombre();
                                     float precio = pepe.getCprecioNById(pre);
+                                    float subtotal = de.getSubtotal_compra();
                                     
+                                    apagar += subtotal;
                                     url = pepe.getImagenById(c.getImagen());
                                 int elementofront= Integer.parseInt(elemento);
                 %>
@@ -94,7 +98,7 @@
                         <img src="<%= url%>" width="50px" height="50px">
                     </td>
                      <td>
-                        <%= tipo%>
+                        <%= tipo2%>
                     </td>
                         
                     <td>
@@ -107,7 +111,7 @@
                         <%= de.getCantidad_compra() %>
                     </td>
                     <td>
-                        <%= de.getSubtotal_compra() %>
+                        <%= subtotal %>
                     </td>
                     <td>
                         <%=elementofront +1%>
@@ -117,6 +121,7 @@
                     </td>
                     <%
                     }else if(tipo==4){
+String tipo2 = "Controlador";
                         String elemento = String.valueOf(i);
                         Contro c2 = new Contro();
                         c2= Contro.gelProductoById(de.getId_producto());
@@ -124,6 +129,9 @@
                         String url = c2.getImagen();
                         float precio = c2.getPrecio();
                         int elementofront= Integer.parseInt(elemento);
+float subtotal = de.getSubtotal_compra();
+                                    
+                                    apagar  +=subtotal;
                     %>
                     
                     <tr>
@@ -131,7 +139,7 @@
                         <img src="<%= url%>" width="50px" height="50px">
                     </td>
                      <td>
-                        <%= tipo%>
+                        <%= tipo2%>
                     </td>
                         
                     <td>
@@ -144,7 +152,7 @@
                         <%= de.getCantidad_compra() %>
                     </td>
                     <td>
-                        <%= de.getSubtotal_compra() %>
+                        <%= subtotal %>
                     </td>
                     <td>
                         <%=elementofront +1%>
@@ -155,6 +163,7 @@
                     
                     <%
                         }else if(tipo==2){
+String tipo2 = "Microfono";
                         String elemento = String.valueOf(i);
                         Micro m = new Micro();
                         m= Micro.gelProductoById(de.getId_producto());
@@ -163,6 +172,9 @@
                         int pre = m.getTipo();
                         float precio = pepe3.getCPrecioTiById(pre);
 int elementofront= Integer.parseInt(elemento);
+float subtotal = de.getSubtotal_compra();
+                                    
+                                    apagar += subtotal;
                     %>
                     
                     <tr>
@@ -170,7 +182,7 @@ int elementofront= Integer.parseInt(elemento);
                         <img src="<%= url%>" width="50px" height="50px">
                     </td>
                      <td>
-                        <%= tipo%>
+                        <%= tipo2%>
                     </td>
                         
                     <td>
@@ -183,7 +195,7 @@ int elementofront= Integer.parseInt(elemento);
                         <%= de.getCantidad_compra() %>
                     </td>
                     <td>
-                        <%= de.getSubtotal_compra() %>
+                        <%= subtotal %>
                     </td>
                     <td>
                         <%=elementofront  +1%>
@@ -193,6 +205,7 @@ int elementofront= Integer.parseInt(elemento);
                     </td>
                     <%
                      }else if(tipo==3){
+String tipo2 = "Conexion";
                      String elemento = String.valueOf(i);
                         PConec c3 = new PConec();
                         c3= PConec.gelProductoById(de.getId_producto());
@@ -202,7 +215,9 @@ int elementofront= Integer.parseInt(elemento);
                         float precio = pepe4.getPrecioById(pre);
                         int elementofront= Integer.parseInt(elemento);
                         
-                    
+                    float subtotal = de.getSubtotal_compra();
+                                    
+                                    apagar += subtotal;
                     %>
                     
                     <tr>
@@ -210,7 +225,7 @@ int elementofront= Integer.parseInt(elemento);
                         <img src="<%= url%>" width="50px" height="50px">
                     </td>
                      <td>
-                        <%= tipo%>
+                        <%= tipo2%>
                     </td>
                         
                     <td>
@@ -223,7 +238,7 @@ int elementofront= Integer.parseInt(elemento);
                         <%= de.getCantidad_compra() %>
                     </td>
                     <td>
-                        <%= de.getSubtotal_compra() %>
+                        <%= subtotal %>
                     </td>
                     <td>
                         <%=elementofront +1%>
@@ -238,8 +253,10 @@ int elementofront= Integer.parseInt(elemento);
                 </tr>
                 </tbody>
             </table>
-                <form method = "post" action="ticket.jsp">
-                   <input type="submit" value="Realizar la compra">  
+                <form method = "post" action="ticket.jsp?<%= apagar%>">
+                   <input type="submit" value="Realizar la compra">
+                   el total es: <%= apagar%>
                 </form>
+                
     </body>
 </html>

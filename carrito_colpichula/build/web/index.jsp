@@ -23,19 +23,11 @@ and open the template in the editor.
     <body>
         
         <h1>Bienvenidos</h1>
-        <header>
-            Cabezera y vinculos del index principal
-            <a>Ver todos los productos(Galeria)</a>
-        </header>
         
         
         
         
         <a href="Login.jsp"><input type="button" value="Iniciar sesion"> </a><br><br>
-        <a href="ListaCuerpos.jsp">Lista de los cuerpos</a>
-        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
-        <a href="ListaMicro.jsp">Lista de los microfonos</a>
-        <a href="ListaControles.jsp">Lista de los controladores</a>
         
         <h1>Lista de todos los produtos</h1>
         <br>

@@ -30,7 +30,7 @@
             }
         %>
         <h1>Index del cliente <%= usuario%></h1>
-        
+        <a href="CerrarSesion">Cerrar Sesion</a>
         <h1>Lista de todos los produtos</h1>
         <br>
         <h1>Cuerpos:</h1>        

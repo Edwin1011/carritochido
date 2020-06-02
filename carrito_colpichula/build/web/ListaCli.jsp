@@ -14,6 +14,14 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <a href="index_admin.jsp">Lista de los cuerpos</a>
+        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
+        <a href="ListaMicro.jsp">Lista de los microfonos</a>
+        <a href="ListaControles.jsp">Lista de los controladores</a>
+        <a href="ListaCli.jsp">Ver todos los clientes</a>
+        <a href="graficas.jsp">Ver las graficas de ventas-fechas</a>
+        <a href="CerrarSesion">Cerrar Sesion</a>
+        <a href="Perfil_admin.jsp">Ver mi perfil</a>
         <h1>Lista de todos los clientes</h1>
         <div class="megaconteiner">
                 <h1>Usuarios</h1>
@@ -54,6 +62,9 @@
                         </td>
                         <td align="center">
                             Eliminar
+                        </td>
+                        <td align="center">
+                            Ir al historial
                         </td>
                 <%
                     List<Cliente> lista = Cliente.getAllClientes();
@@ -98,6 +109,9 @@
                             </td>
                             <td align="center">
                                 <a href="EliminarCliente?id=<%= c.getId()%>" class="link">Eliminar el id <%= c.getId()%></a>
+                            </td>
+                            <td align="center">
+                                <a href="HistorialCli.jsp?id=<%= c.getId()%>" class="link">Historial del id <%= c.getId()%></a>
                             </td>
                         <%
                             }

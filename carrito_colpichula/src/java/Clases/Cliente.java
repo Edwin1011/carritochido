@@ -169,7 +169,48 @@ public class Cliente {
         }
         return estatus;
     }
-    
+    public static Cliente getClienteById (int id) throws ClassNotFoundException{
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Cliente c = new Cliente();
+        try {
+            
+            con = Conexion.getConnection();
+            String q = "select * from cliente where id_cliente = ?";
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            while (rs.next()){
+                               
+                c.setId(rs.getInt(1));
+                c.setNombre(rs.getString(2));
+                c.setAppat(rs.getString(3));
+                c.setApmat(rs.getString(4));
+                c.setFecha(rs.getString(5));
+                c.setDirec(rs.getString(6));
+                c.setDirecen(rs.getString(7));
+                c.setTel(rs.getString(8));
+                c.setCel(rs.getString(9));
+                c.setUsuario(rs.getString(10));
+                c.setContraseña(rs.getString(11));
+                
+            }
+        } catch(SQLException ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                rs.close();
+                ps.close();
+                con.close();
+            }catch(SQLException ex){
+                ex.printStackTrace();
+            }
+        }
+        return c;
+    }
     public String getNombre() {
         return nombre;
     }

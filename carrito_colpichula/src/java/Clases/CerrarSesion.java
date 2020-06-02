@@ -38,7 +38,7 @@ public class CerrarSesion extends HttpServlet {
             HttpSession sesionOK = request.getSession();
             sesionOK.invalidate();
             request.setAttribute("mesage","Sesion cerrada");
-             response.sendRedirect("Login.jsp");
+             response.sendRedirect("index.jsp");
         
             
             /* TODO output your page here. You may use following sample code. */

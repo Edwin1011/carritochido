@@ -100,6 +100,10 @@
         <servlet-name>realizarcompra</servlet-name>
         <servlet-class>Clases.realizarcompra</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarAdmi</servlet-name>
+        <servlet-class>Clases.EditarAdmi</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>realizarcompra</servlet-name>
         <url-pattern>/realizarcompra</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarAdmi</servlet-name>
+        <url-pattern>/EditarAdmi</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

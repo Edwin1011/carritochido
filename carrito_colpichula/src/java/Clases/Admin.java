@@ -68,7 +68,37 @@ public class Admin {
         }
         return lista;
     }
-    
+    public static int Editar(Admin a){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update administrador set nom_admi = ?,appat_admi = ?,apmat_admi = ?,fechaNaci_admi = ?,dir_admi = ?,tel_admi = ?,cel_admi = ? where id_admi = 1";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, a.getNom_admi());           
+            ps.setString(2, a.getAppat_admi());
+            ps.setString(3, a.getApmat_admi());
+            ps.setString(4, a.getFechaNaci_admi());
+            ps.setString(5, a.getDir_admi());
+            ps.setString(6, a.getTel_admi());
+            ps.setString(7, a.getCel_admi());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
     
     public int getId() {
         return id;
