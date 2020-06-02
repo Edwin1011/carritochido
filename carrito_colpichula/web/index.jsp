@@ -16,23 +16,120 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Index</title>
+        <title>Compra audio-partes en HAUD</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
-        
-        <h1>Bienvenidos</h1>
-        
-        
-        
-        
-        <a href="Login.jsp"><input type="button" value="Iniciar sesion"> </a><br><br>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="Login.jsp">Iniciar sesion</a></li>
+                </ul>   
+            
+            </nav>
+        </header>
         
         <h1>Lista de todos los produtos</h1>
         <br>
-        <h1>Cuerpos:</h1>        
-                <%
+            <div class="generalP">
+                
+            <%
+                    Micro pepe2 = new Micro();
+                    List<Micro> lista2 = Micro.getAllMicros();
+                    Micro m = new Micro();
+                    for (int i = 0; i < lista2.size(); i++) {
+                        m = (Micro)lista2.get(i);
+                                int nombre = m.getTipo();
+                                String nombre2 = pepe2.getTipoById(nombre);
+                            
+                                int imagen = m.getImagen();
+                                String url = pepe2.getImagenById(imagen);
+                            %>
+                            <form action="Login.jsp">
+                                <div class="ContenedorG">
+                                    
+                                    <div class="imagen">                                    
+                                        <a><input type="image" src="<%= url%>" alt="imagen" width="200px" height="200px"></a>
+                                    </div>
+                                        <input type="submit" class="button-i" value="Ver producto">
+                                        <div>Microfonos tipo: <%= nombre2%></div>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </form>
+                        <%
+                            }
+                        %>
+         <%  
+                    PConec pepe3 = new PConec();
+                    List<PConec> lista3 = PConec.getAllConexiones();
+                    PConec p = new PConec();
+                    for (int i = 0; i < lista3.size(); i++) {
+                            p = (PConec)lista3.get(i);
+                                int tipo = p.getTipo();
+                                String nombre2 = p.getNombreById(tipo);
+                                
+                                int imagen = p.getImagen();
+                                String url = pepe3.getImagenById(imagen);
+                            %>
+                            <form action="Login.jsp">
+                                <div class="ContenedorG">
+                                    
+                                    <div class="imagen">                                    
+                                        <a><input type="image" src="<%= url%>" alt="imagen" width="200px" height="200px"></a>
+                                    </div>
+                                        <input type="submit" class="button-i" value="Ver producto">
+                                        <div>Conexiones tipo: <%= nombre2%></div>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </form>
+                        <%
+                            }
+                        %>
+    <%
+                    List<Contro> lista5 = Contro.getAllContros();
+                    Contro c2 = new Contro();
+                    for (int i = 0; i < lista5.size(); i++) {
+                            c2 = (Contro)lista5.get(i);
+                            String url = c2.getImagen();
+                %>
+                         <form action="Login.jsp">
+                                <div class="ContenedorG">
+                                    <div class="imagen">                                    
+                                        <a><input type="image" src="<%= url%>" alt="imagen" width="200px" height="200px"></a>
+                                        
+                                    </div>
+                                        <input type="submit" class="button-i" value="Ver producto">
+                                </div>
+                                        <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </form>
+                        <%
+                            }
+                        %>
+            <%
                     Cuerpo pepe = new Cuerpo();
                     
                     List<Cuerpo> lista = Cuerpo.getAllCuerpos();
@@ -49,82 +146,25 @@ and open the template in the editor.
                             String url = pepe.getImagenById(imagen);
                 %>                           
                             <form action="Login.jsp">
-                                <div class="Contenedor-cuerpos">
-                                    <div>Audifonos tipo: <%= nombre2%> de color: <%= color2%></div>
+                                <div class="ContenedorG" >
                                     <div class="imagen">                                    
-                                        <a><input type="image" src="<%= url%>" alt="imagen" width="50px" height="50px"></a>
+                                        <a><input type="image" src="<%= url%>" alt="imagen" width="200px" height="200px"></a>
                                     </div>
+                                    <div>Cuerpo tipo <%= nombre2%> de color <%= color2%></div>
+                                    <input type="submit" class="button-i" value="Ver producto">
                                 </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
                             </form>
                         <%
                             }
                         %>
-        <h1>Microfonos:</h1>
-                <%
-                    Micro pepe2 = new Micro();
-                    List<Micro> lista2 = Micro.getAllMicros();
-                    Micro m = new Micro();
-                    for (int i = 0; i < lista2.size(); i++) {
-                        m = (Micro)lista2.get(i);
-                                int nombre = m.getTipo();
-                                String nombre2 = pepe2.getTipoById(nombre);
-                            
-                                int imagen = m.getImagen();
-                                String url = pepe2.getImagenById(imagen);
-                            %>
-                            <form action="Login.jsp">
-                                <div class="Contenedor-micros">
-                                    <div>Microfonos tipo: <%= nombre2%></div>
-                                    <div class="imagen">                                    
-                                        <a><input type="image" src="<%= url%>" alt="imagen" width="50px" height="50px"></a>
-                                    </div>
-                                </div>
-                            </form>
-                        <%
-                            }
-                        %>
-        <h1>Conexiones:</h1>
-         <%  
-                    PConec pepe3 = new PConec();
-                    List<PConec> lista3 = PConec.getAllConexiones();
-                    PConec p = new PConec();
-                    for (int i = 0; i < lista3.size(); i++) {
-                            p = (PConec)lista3.get(i);
-                                int tipo = p.getTipo();
-                                String nombre2 = p.getNombreById(tipo);
-                                
-                                int imagen = p.getImagen();
-                                String url = pepe3.getImagenById(imagen);
-                            %>
-                            <form action="Login.jsp">
-                                <div class="Contenedor-conec">
-                                    <div>Conexiones tipo: <%= nombre2%></div>
-                                    <div class="imagen">                                    
-                                        <a><input type="image" src="<%= url%>" alt="imagen" width="50px" height="50px"></a>
-                                    </div>
-                                </div>
-                            </form>
-                        <%
-                            }
-                        %>
-    <h1>Controlador:</h1>
-    <%
-                    List<Contro> lista5 = Contro.getAllContros();
-                    Contro c2 = new Contro();
-                    for (int i = 0; i < lista5.size(); i++) {
-                            c2 = (Contro)lista5.get(i);
-                            String url = c2.getImagen();
-                %>
-                         <form action="Login.jsp">
-                                <div class="Contenedor-controlador">
-                                    <div class="imagen">                                    
-                                        <a><input type="image" src="<%= url%>" alt="imagen" width="50px" height="50px"></a>
-                                    </div>
-                                </div>
-                            </form>
-                        <%
-                            }
-                        %>
+            
+                </div>
     </body>
 </html>
 

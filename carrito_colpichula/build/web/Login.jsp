@@ -8,8 +8,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
-    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>Inicia sesion</title>
 </head>
 <body oncopy='return false' oncut='return false' onpaste='return false' ondragstart="return false" ondrop="return false">
     <div class="login">
@@ -22,7 +24,7 @@
                 <div class="input-contenedor">
                     <input type="password" placeholder="Contraseña" name="contra">
                 </div>
-                <input type="submit" name="inciar" value = "Iniciar sesion">
+                <input type="submit" class="button" value = "Iniciar sesion">
                 <br>
                 <br>
                 <p>No tienes una cuenta? <a href="RegistrarCli.jsp">Registrarse</a></p>
