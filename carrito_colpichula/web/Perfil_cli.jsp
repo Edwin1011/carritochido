@@ -11,7 +11,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        <title>Mi perfil</title>
     </head>
     <body>
         <%
@@ -29,9 +32,22 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <a href="index_cli.jsp">Lista de los productos</a>
-        <a href="CerrarSesion">Cerrar Sesion</a>
-        <table>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="index_cli.jsp">Ver productos</a></li>
+                    <li><a href="historial.jsp">Mis compras</a></li>
+                    <li><a href="CerrarSesion">Cerrar Sesion</a></li>
+                </ul>   
+            
+            </nav>
+        </header>
                 <%
                     DetalleCompra de = new DetalleCompra();
                     Cliente c = new Cliente();
@@ -40,28 +56,29 @@
                     c = Cliente.getClienteById(id_cli);
                     
                 %>
-                            <tr align="center">
-                                <td>
-                                    Id <%= id_cli%>
-                                </td>
-                            </tr>
-                            <tr align="center">
-                                <td>
-                                    Nombre: <%= c.getNombre()%>
-                                </td>
-                                <td>
-                                    <form method="post" action="EditarNombre.jsp">
-                                        <input type="submit" value="Editar">
-                                    </form>
-                                </td>
-                            </tr>
+        <div class="card">
+      <div class="card-image">
+        <img src="https://res.cloudinary.com/dgvhkv4ng/image/upload/v1591172811/banner_sdkvqd.jpg" alt="">
+      </div>
+      <div class="profile-image">
+        <img src="https://res.cloudinary.com/dgvhkv4ng/image/upload/v1591172811/pandaP_vgtv3z.png" alt="">
+      </div>
+      <div class="card-content">
+        <h3><%= c.getNombre()%></h3>
+        <form method="post" action="EditarNombre.jsp">
+        <input type="submit" value="Editar" class="btn-edit">
+        </form>
+      </div>
+        <div class="usu">
+            <div>
+                <table class="usuario">
                             <tr align="center">
                                 <td>
                                     Apellido Paterno: <%= c.getAppat()%>
                                 </td>
                                 <td>
                                     <form method="post" action="EditarApepat.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
@@ -71,7 +88,7 @@
                                 </td>
                                 <td>
                                     <form method="post" action="EditarApemat.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
@@ -81,17 +98,21 @@
                                 </td>
                                 <td>
                                     <form method="post" action="EditarFecha.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
+            </table>
+            </div>
+            <div>
+            <table class="usuario">
                             <tr align="center">
                                 <td>
                                     Direccion: <%= c.getDirec()%>
                                 </td>
                                <td>
                                     <form method="post" action="EditarDirec.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
@@ -101,7 +122,7 @@
                                 </td>
                                 <td>
                                     <form method="post" action="EditarDirecEn.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
@@ -111,17 +132,21 @@
                                 </td>
                                 <td>
                                     <form method="post" action="EditarTel.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
+            </table>
+            </div>       
+            <div>
+                <table class="usuario">
                             <tr align="center">
                                 <td>
                                     Numero de celular: <%= c.getCel()%>
                                 </td>
                                 <td>
                                     <form method="post" action="EditarCel.jsp">
-                                        <input type="submit" value="Editar">
+                                        <input type="submit" value="Editar" class="btn-edit">
                                     </form>
                                 </td>
                             </tr>
@@ -134,12 +159,12 @@
                                 <td>
                                    Contraseña: <%= c.getContraseña() %>
                                 </td>
-                            </tr>
-                        <%
-                            
-                        %>
-                                       
-                    </tbody>
+                            </tr>     
                 </table>
+            </div>
+            
+        
+      </div> 
+    </div>
     </body>
 </html>

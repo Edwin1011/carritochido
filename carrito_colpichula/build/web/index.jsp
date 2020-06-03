@@ -19,7 +19,7 @@ and open the template in the editor.
         <title>Compra audio-partes en HAUD</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -37,7 +37,8 @@ and open the template in the editor.
             
             </nav>
         </header>
-        
+        <div class="baner">
+        </div>
         <h1>Lista de todos los produtos</h1>
         <br>
             <div class="generalP">

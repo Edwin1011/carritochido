@@ -11,7 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <title>Mis compras</title>
     </head>
     <body><%
             String usuario = "";
@@ -28,9 +30,28 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1>Buenaas <%= usuario%> Aqui esta tu historial</h1>
-        <div class="megaconteiner">
-            <table>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="index_cli.jsp">Ver productos</a></li>
+                    <li><a href="historial.jsp">Mis compras</a></li>
+                    <li><a href="Perfil_cli.jsp"><%= usuario%></a></li>
+                </ul>   
+            
+            </nav>
+        </header>
+        <h1>Buenas <%= usuario%> este es tu historial</h1>
+        <div class="historial">
+            <div>
+                
+            
+            <table class="clientes">
                 <tbody>
                 <td align="center">
                     id de la compra
@@ -191,7 +212,7 @@ c2= Contro.gelProductoById(dc.getId_producto());
                 %>
                 </tbody>
             </table>
-                <a href="index_cli.jsp">Index cliente</a>
+                </div>
         </div>
     </body>
 </html>
