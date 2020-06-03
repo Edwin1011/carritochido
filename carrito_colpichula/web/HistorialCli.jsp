@@ -29,6 +29,9 @@
                 <td align="center">
                     id de la compra
                 </td>
+                <td>
+                    Imagen
+                </td>
                 <td align="center">
                     id del producto
                 </td>
@@ -49,7 +52,9 @@
                 </td>
                 <%
                 DetalleCompra pepe = new DetalleCompra();
-                
+                Cuerpo pepecu = new Cuerpo();
+                Micro pepe3 = new Micro();
+                PConec pepe4 = new PConec();
                 List<DetalleCompra> lista = DetalleCompra.getHistorial(id_cliente);
                 DetalleCompra dc = new DetalleCompra();
                 for (int i = 0; i < lista.size(); i++) {
@@ -61,13 +66,22 @@
                         float precio = dc.getSubtotal_compra();
                         float total = dc.getTotal_compra();
                         String fecha = dc.getFecha_compra();
+                        if (tipo == 1) {
+                            String tipo2 = "Cuerpo";
+                            Cuerpo cu = new Cuerpo();                                
+                                cu = Cuerpo.gelProductoById(dc.getId_producto());
+                                    String url;
+                            url = pepecu.getImagenById(cu.getImagen());
                 %>
                 <tr>
                     <td align="center"><%= id_compra%>
                 </td>
+                <td>
+                    <img src="<%= url%>" width="50px" height="50px">
+                </td>
                 <td align="center"><%= id_prod%>
                 </td>
-                <td align="center"><%= tipo%>
+                <td align="center"><%= tipo2%>
                 </td>
                 <td align="center"><%= cantidad%>
                 </td>
@@ -80,6 +94,91 @@
                 </tr>
                 
                 <% 
+                    }else if(tipo == 2){
+                    Micro m = new Micro();
+                        m= Micro.gelProductoById(dc.getId_producto());
+                        m.getId_microfono();
+                    String tipo2 = "Microfono";
+                    String url =pepe3.getImagenById( m.getImagen());
+                %>
+                <tr>
+                    <td align="center"><%= id_compra%>
+                </td>
+                <td>
+                    <img src="<%= url%>" width="50px" height="50px">
+                </td>
+                <td align="center"><%= id_prod%>
+                </td>
+                <td align="center"><%= tipo2%>
+                </td>
+                <td align="center"><%= cantidad%>
+                </td>
+                <td align="center"><%= precio%>
+                </td>
+                <td align="center"><%= total%>
+                </td>
+                <td align="center"><%= fecha%>
+                </td>
+                </tr>
+                
+<%
+}else if (tipo == 3) {
+       String tipo2 = "Conexion";
+PConec c3 = new PConec();
+                        c3= PConec.gelProductoById(dc.getId_producto());
+                        c3.getId_conec();
+                        String url =pepe4.getImagenById( c3.getImagen());
+%>
+                <tr>
+                    <td align="center"><%= id_compra%>
+                </td>
+                <td>
+                    <img src="<%= url%>" width="50px" height="50px">
+                </td>
+                <td align="center"><%= id_prod%>
+                </td>
+                <td align="center"><%= tipo2%>
+                </td>
+                <td align="center"><%= cantidad%>
+                </td>
+                <td align="center"><%= precio%>
+                </td>
+                <td align="center"><%= total%>
+                </td>
+                <td align="center"><%= fecha%>
+                </td>
+                </tr>
+
+<%
+    }else if(tipo == 4){
+    String tipo2 = "Controlador";
+Contro c2 = new Contro();
+c2= Contro.gelProductoById(dc.getId_producto());
+                        c2.getId_cont();
+                        String url = c2.getImagen();
+%>
+                <tr>
+                    <td align="center"><%= id_compra%>
+                </td>
+                <td>
+                    <img src="<%= url%>" width="50px" height="50px">
+                </td>
+                <td align="center"><%= id_prod%>
+                </td>
+                <td align="center"><%= tipo2%>
+                </td>
+                <td align="center"><%= cantidad%>
+                </td>
+                <td align="center"><%= precio%>
+                </td>
+                <td align="center"><%= total%>
+                </td>
+                <td align="center"><%= fecha%>
+                </td>
+                </tr>
+
+<%
+}
                     }
                 %>
                 </tbody>

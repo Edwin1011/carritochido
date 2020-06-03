@@ -14,6 +14,21 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            String usuario = "";
+            HttpSession sesionOK = request.getSession();
+            if(sesionOK.getAttribute("usuario") == null){
+                
+            
+        %>
+        <jsp:forward page="index.jsp">
+            <jsp:param name="error" value="Es obligatorio identificarse"/>
+        </jsp:forward>
+        <%
+            }else{
+                usuario = (String)sesionOK.getAttribute("usuario");
+            }
+        %>
         <a href="index_admin.jsp">Lista de los cuerpos</a>
         <a href="ListaConexiones.jsp">Lista de las conexiones</a>
         <a href="ListaMicro.jsp">Lista de los microfonos</a>
@@ -35,7 +50,7 @@
                 %>
                             <tr align="center">
                                 <td>
-                                    Tipo: <%= a.getId()%>
+                                    Id <%= a.getId()%>
                                 </td>
                             </tr>
                             <tr align="center">

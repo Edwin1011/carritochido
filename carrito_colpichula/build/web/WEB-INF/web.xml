@@ -104,6 +104,38 @@
         <servlet-name>EditarAdmi</servlet-name>
         <servlet-class>Clases.EditarAdmi</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ActNombre_cli</servlet-name>
+        <servlet-class>Clases.ActNombre_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActApepat_cli</servlet-name>
+        <servlet-class>Clases.ActApepat_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActApemar_cli</servlet-name>
+        <servlet-class>Clases.ActApemar_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActFecha_cli</servlet-name>
+        <servlet-class>Clases.ActFecha_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActDirec_cli</servlet-name>
+        <servlet-class>Clases.ActDirec_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActDirecEn_cli</servlet-name>
+        <servlet-class>Clases.ActDirecEn_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Acttel_cli</servlet-name>
+        <servlet-class>Clases.Acttel_cli</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Actcel_cli</servlet-name>
+        <servlet-class>Clases.Actcel_cli</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>guardarcliente</servlet-name>
         <url-pattern>/guardarcliente</url-pattern>
@@ -207,6 +239,38 @@
     <servlet-mapping>
         <servlet-name>EditarAdmi</servlet-name>
         <url-pattern>/EditarAdmi</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActNombre_cli</servlet-name>
+        <url-pattern>/ActNombre_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActApepat_cli</servlet-name>
+        <url-pattern>/ActApepat_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActApemar_cli</servlet-name>
+        <url-pattern>/ActApemar_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActFecha_cli</servlet-name>
+        <url-pattern>/ActFecha_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActDirec_cli</servlet-name>
+        <url-pattern>/ActDirec_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActDirecEn_cli</servlet-name>
+        <url-pattern>/ActDirecEn_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Acttel_cli</servlet-name>
+        <url-pattern>/Acttel_cli</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Actcel_cli</servlet-name>
+        <url-pattern>/Actcel_cli</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

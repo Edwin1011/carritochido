@@ -169,6 +169,214 @@ public class Cliente {
         }
         return estatus;
     }
+    public static int EditarNombre (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  nom_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getNombre()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarApellidoPaterno (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  appat_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getAppat()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarApellidoMaterno (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  apmat_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getApmat()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarFecha (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  fechaNaci_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getFecha()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarDireccion (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  dir_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getDirec()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarDirecEntre (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  diren_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getDirecen()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarTelefono (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  tel_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getTel()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
+    public static int EditarCelular (Cliente e){
+        
+        int estatus = 0;
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+       
+        
+        try {
+            con = Conexion.getConnection();
+            
+            String q = "update cliente set  cel_cli = ? where id_cliente = ?";
+            
+            ps = con.prepareStatement(q);
+            
+            ps.setString(1, e.getCel()); 
+            ps.setInt(2,e.getId());
+            
+            estatus = ps.executeUpdate();
+            
+            con.close();
+        } catch (Exception u) {
+            u.printStackTrace();
+        }
+        return estatus;
+    }
     public static Cliente getClienteById (int id) throws ClassNotFoundException{
         
         Connection con = null;

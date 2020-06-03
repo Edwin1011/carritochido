@@ -39,11 +39,11 @@ public class EliminarCliente extends HttpServlet {
                 eseid = request.getParameter("id");
 
                 int id = Integer.parseInt(eseid);
-
+                System.out.println("weboooooos");
                 Cliente.Eliminar(id);
+                System.out.println("web");
                 
                 response.sendRedirect("ListaCli.jsp");
-                System.out.println("elimino");
             }catch (Exception e){
                 e.printStackTrace();
                 System.out.println("no elimino");

@@ -31,6 +31,8 @@
         %>
         <h1>Index del cliente <%= usuario%></h1>
         <a href="CerrarSesion">Cerrar Sesion</a>
+        <a href="Perfil_cli.jsp">Ver mi perfil</a>
+        <a href="historial.jsp">Ver mi historial</a>
         <h1>Lista de todos los produtos</h1>
         <br>
         <h1>Cuerpos:</h1>        
