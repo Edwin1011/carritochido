@@ -118,7 +118,7 @@ public class Contro {
         try {
             
             con = Conexion.getConnection();
-            String q = "select * from controladores where id_cont = ?";
+            String q = "call getcontroId(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1, id);
             rs = ps.executeQuery();

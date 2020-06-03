@@ -251,7 +251,7 @@ public class Micro {
         try {
             
             con = Conexion.getConnection();
-            String q = "select * from microfono where id_microfono = ?";
+            String q = "call getmicroId(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1, id);
             rs = ps.executeQuery();

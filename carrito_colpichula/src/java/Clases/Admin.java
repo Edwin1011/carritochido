@@ -31,7 +31,7 @@ public class Admin {
             System.out.println("dentro del try");
             con = Conexion.getConnection();
             
-            String q = "select * from administrador";
+            String q = "call getAllAdmin";
             ps = con.prepareStatement(q);
             rs = ps.executeQuery();
             System.out.println("conec o sql ");
@@ -78,8 +78,7 @@ public class Admin {
         
         try {
             con = Conexion.getConnection();
-            
-            String q = "update administrador set nom_admi = ?,appat_admi = ?,apmat_admi = ?,fechaNaci_admi = ?,dir_admi = ?,tel_admi = ?,cel_admi = ? where id_admi = 1";
+            String q = "call editarAdmin(?, ?, ?, ?, ?, ?, ?)";
             
             ps = con.prepareStatement(q);
             

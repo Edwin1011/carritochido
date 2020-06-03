@@ -32,8 +32,7 @@ public class DetalleCompra {
         try {
             con = Conexion.getConnection();
             
-            String q = "Insert into compra(id_cliente,id_producto,tipo_prod,cantidad_compra,subtotal_compra,total_compra,fecha_compra)"
-                    + "values (?, ?, ?, ?, ?, ?,curdate()) ";
+            String q = "call InsertarCompra(?, ?, ?, ?, ?, ?)";
             ps = con.prepareStatement(q);
             
             ps.setInt(1, d.getId_cliente());
@@ -62,7 +61,7 @@ public class DetalleCompra {
         try {
             
             con = Conexion.getConnection();
-            String q = "select id_cliente from cliente where usuario = ?";
+            String q = "call getUsuariobyNombre(?)";
             ps = con.prepareStatement(q);
             ps.setString(1, nombre);
             rs = ps.executeQuery();
@@ -90,7 +89,7 @@ public class DetalleCompra {
         ResultSet rs = null;
         try {
             con = Conexion.getConnection();
-            String q = "select * from compra where id_cliente = ?";
+            String q = "call todas_compras(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1,id_cliente);
             rs = ps.executeQuery();

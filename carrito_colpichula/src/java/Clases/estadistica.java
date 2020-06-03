@@ -28,7 +28,7 @@ public class estadistica {
         try {
             for (int i = 0; i < 7; i++) {
             con = Conexion.getConnection();
-            String q = "select * from compra where fecha_compra = curdate()-?";
+            String q = "call grafica(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1,i);
             rs = ps.executeQuery();

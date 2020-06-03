@@ -26,7 +26,7 @@ public class Cliente {
         ResultSet rs = null;
          try {
             con = Conexion.getConnection();
-            String q = "select * from cliente where usuario = ? and contraseña = ? ";
+            String q = "call verificar(?, ?)";
             
             ps = con.prepareStatement(q);
             ps.setString(1, usuario);
@@ -146,7 +146,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "insert into cliente (nom_cli,appat_cli,apmat_cli,fechaNaci_cli,dir_cli,diren_cli,tel_cli,cel_cli,usuario,contraseña) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String q = "call guardarcliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -180,7 +180,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  nom_cli = ? where id_cliente = ?";
+            String q = "call editarNombre_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -206,7 +206,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  appat_cli = ? where id_cliente = ?";
+            String q = "call editarPA_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -232,7 +232,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  apmat_cli = ? where id_cliente = ?";
+            String q = "call editarPMA_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -258,7 +258,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  fechaNaci_cli = ? where id_cliente = ?";
+            String q = "call editarfecha_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -284,7 +284,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  dir_cli = ? where id_cliente = ?";
+            String q = "call editardir_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -310,7 +310,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  diren_cli = ? where id_cliente = ?";
+            String q = "call editardiren_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -336,7 +336,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  tel_cli = ? where id_cliente = ?";
+            String q = "call editartel_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -362,7 +362,7 @@ public class Cliente {
         try {
             con = Conexion.getConnection();
             
-            String q = "update cliente set  cel_cli = ? where id_cliente = ?";
+            String q = "call editarcel_cli(?, ?)";
             
             ps = con.prepareStatement(q);
             
@@ -386,7 +386,7 @@ public class Cliente {
         try {
             
             con = Conexion.getConnection();
-            String q = "select * from cliente where id_cliente = ?";
+            String q = "call getClienteId(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1, id);
             rs = ps.executeQuery();

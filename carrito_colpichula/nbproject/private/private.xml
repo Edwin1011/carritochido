@@ -11,29 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/EditarTel.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Cliente.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/EditarNombre.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/VerCarrito.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/ActNombre_cli.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/EliminarCliente.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/ActDirecEn_cli.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/historial.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/index_admin.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/ListaCli.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/ActDirec_cli.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/EditarDirec.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/HistorialCli.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/realizarcompra.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/editarAdmin.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Acttel_cli.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/EditarCel.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/index_cli.jsp</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Admin.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/ActApepat_cli.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/src/java/Clases/Actcel_cli.java</file>
-            <file>file:/C:/Users/edwin/OneDrive/Escritorio/carritogit/carrito/carrito_colpichula/web/Perfil_cli.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

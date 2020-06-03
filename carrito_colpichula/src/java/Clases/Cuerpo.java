@@ -283,7 +283,7 @@ public class Cuerpo {
         try {
             
             con = Conexion.getConnection();
-            String q = "select * from cuerpo where id_cuerpo = ?";
+            String q = "call getcuerpoId(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1, id);
             rs = ps.executeQuery();

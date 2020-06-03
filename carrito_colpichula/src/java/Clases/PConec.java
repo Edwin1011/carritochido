@@ -221,7 +221,7 @@ public class PConec {
         try {
             
             con = Conexion.getConnection();
-            String q = "select * from conexion where id_conec = ?";
+            String q = "call getconec(?)";
             ps = con.prepareStatement(q);
             ps.setInt(1, id);
             rs = ps.executeQuery();
