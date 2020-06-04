@@ -11,7 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Cuerpos en stock</title>
     </head>
     <body>
         <%
@@ -29,21 +31,38 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1>Index del admin <%= usuario%></h1>
-        <a href="index_admin.jsp">Lista de los cuerpos</a>
-        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
-        <a href="ListaMicro.jsp">Lista de los microfonos</a>
-        <a href="ListaControles.jsp">Lista de los controladores</a>
-        <a href="ListaCli.jsp">Ver todos los clientes</a>
-        <a href="graficas.jsp">Ver las graficas de ventas-fechas</a>
-        <a href="CerrarSesion">Cerrar Sesion</a>
-        <a href="Perfil_admin.jsp">Ver mi perfil</a>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    
+                    <li><a href="graficas.jsp">Ver las ventas</a></li>
+                    <li><a href="ListaCli.jsp">Ver todos los clientes</a></li>
+                    <li><a href="Perfil_admin.jsp">Ver mi perfil</a></li>
+                </ul>   
+            
+            </nav>
+        </header>
+        <div class="con-admin">
+            <a href="index_admin.jsp"><input type="button" class="admin" value="Ver cuerpos"></a>
+            <a href="ListaConexiones.jsp"><input type="button" class="admin" value="Ver conexiones"></a>
+            <a href="ListaMicro.jsp"><input type="button" class="admin" value="Ver microfonos"></a>
+            <a href="ListaControles.jsp"><input type="button" class="admin" value="Ver controladores"></a>
+        </div>
+        
+        
         <br>
         <br>
         <br>
         <div class="megaconteiner">
                 <h1>Cuerpos</h1>
-                <table>
+                <div class="container">
+                <table class="clientes">
                     <tbody>
                         <td align="center" >
                             Id
@@ -123,19 +142,23 @@
                         %>
                         </tr>                
                     </tbody>
-                </table>                        
-                        <form method="post" action="SQuitarstock" class="formulario">
-            <h1>ALterar stocks</h1>
+                </table>
+                </div>
+            <div class="stock">
+            <div>
+                    
+            <form method="post" action="SQuitarstock" class="formulario">
+            <h1>Alterar stocks</h1>
             <div class="contenedor">
                 <div>
-                    <select name="name">
+                    <select name="name" class="opciones">
                         <option value="1"> IN-EAR </option>
                         <option value="2"> ON-EAR </option>
                         <option value="3"> OVER-EAR</option>
                     </select>
                 </div>
                 <div>
-                    <select name="col">
+                    <select name="col" class="opciones">
                         <option value="1">Amarillo</option>
                         <option value="2">Azul</option>
                         <option value="3">Azul Cielo</option>
@@ -148,28 +171,29 @@
                         <option value="10">Verde</option>
                     </select>
                 </div>
-                <div class="input-contenedor">
-                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                <div class="input-contenedor2">
+                    <input type="text" class="add" name="stock" placeholder="Cantidad disponible">
                 </div>               
-                <input type="submit" value="Quitar" class="button">
+                <input type="submit" value="Quitar"  class="btn-s">
                 <br>
                 <br>
                 
             </div>
         </form>
-                        
+                </div>
+        <div>         
         <form method="post" action="guardarcuerpo" class="formulario">
             <h1>Agregar stocks</h1>
             <div class="contenedor">
                 <div>
-                    <select name="name">
+                    <select name="name" class="opciones">
                         <option value="1"> IN-EAR </option>
                         <option value="2"> ON-EAR </option>
                         <option value="3"> OVER-EAR</option>
                     </select>
                 </div>
                 <div>
-                    <select name="col">
+                    <select name="col" class="opciones">
                         <option value="1">Amarillo</option>
                         <option value="2">Azul</option>
                         <option value="3">Azul Cielo</option>
@@ -182,16 +206,17 @@
                         <option value="10">Verde</option>
                     </select>
                 </div>
-                <div class="input-contenedor">
-                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                <div class="input-contenedor2">
+                    <input type="text" class="add" name="stock" placeholder="Cantidad disponible">
                 </div>               
-                <input type="submit" value="Agregar" class="button">
+                <input type="submit" value="Agregar" class="btn-s">
                 <br>
                 <br>
                 
             </div>
         </form>
-            </div>
+        </div>
+    </div>
         
     </body>
 </html>

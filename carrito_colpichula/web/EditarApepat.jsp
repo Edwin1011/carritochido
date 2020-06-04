@@ -10,6 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -36,8 +38,10 @@
         %>
         <h1>Buenas, que apellido paterno quieres:</h1>
         <form action="ActApepat_cli?id=<%= c.getId() %>" method="post">
+            <div class="contenedor">
             <input type="text" placeholder="Apellido paterno no mayor a 20" name="nombre">
-            <input type="submit" value="Editar">
+            <input type="submit" value="Editar" class="button">
+            </div>
         </form>
     </body>
 </html>

@@ -11,6 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -30,21 +32,35 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1>Index del admin <%= usuario%></h1>
-        <a href="index_admin.jsp">Lista de los cuerpos</a>
-        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
-        <a href="ListaMicro.jsp">Lista de los microfonos</a>
-        <a href="ListaControles.jsp">Lista de los controladores</a>
-        <a href="ListaCli.jsp">Ver todos los clientes</a>
-        <a href="graficas.jsp">Ver las graficas de ventas-fechas</a>
-        <a href="CerrarSesion">Cerrar Sesion</a>
-        <a href="Perfil_admin.jsp">Ver mi perfil</a>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    
+                    <li><a href="graficas.jsp">Ver las ventas</a></li>
+                    <li><a href="ListaCli.jsp">Ver todos los clientes</a></li>
+                    <li><a href="Perfil_admin.jsp">Ver mi perfil</a></li>
+                </ul>   
+            
+            </nav>
+        </header>
+        <div class="con-admin">
+            <a href="index_admin.jsp"><input type="button" class="admin" value="Ver cuerpos"></a>
+            <a href="ListaConexiones.jsp"><input type="button" class="admin" value="Ver conexiones"></a>
+            <a href="ListaMicro.jsp"><input type="button" class="admin" value="Ver microfonos"></a>
+            <a href="ListaControles.jsp"><input type="button" class="admin" value="Ver controladores"></a>
+        </div>
         <br>
         <br>
-        <h1>Lista de todos los controladores</h1>
         <div class="megaconteiner">
                 <h1>Conexiones</h1>
-                <table>
+                <div class="container">
+                <table class="clientes">
                     <tbody>
                         <td align="center" >
                             Id
@@ -95,27 +111,29 @@
                         </tr>                
                     </tbody>
                 </table>
-                        <form method="post" action="Squitarstockcontro" class="formulario">
+                </div>
+            <div class="stock">
+            <form method="post" action="Squitarstockcontro" class="formulario">
             <h1>Quitar Stock</h1>
             <div class="contenedor">
                 
-                <div class="input-contenedor">
-                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                <div class="input-contenedor2">
+                    <input type="text" name="stock" class="add" placeholder="Cantidad disponible">
                 </div>               
-                <input type="submit" value="Quitar" class="button">
+                <input type="submit" value="Quitar" class="btn-s">
                 <br>
                 <br>
                 
             </div>
-        </form>
-                         <form method="post" action="guardarcontro" class="formulario">
+            </form>
+            <form method="post" action="guardarcontro" class="formulario">
             <h1>Agregar Stock</h1>
             <div class="contenedor">
                 
-                <div class="input-contenedor">
-                    <input type="text" name="stock" placeholder="Cantidad disponible">
+                <div class="input-contenedor2">
+                    <input type="text" name="stock" class="add" placeholder="Cantidad disponible">
                 </div>               
-                <input type="submit" value="Agregar" class="button">
+                <input type="submit" value="Agregar" class="btn-s">
                 <br>
                 <br>
                 

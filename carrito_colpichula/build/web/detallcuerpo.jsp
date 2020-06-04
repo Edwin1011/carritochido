@@ -8,8 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Microfono</title>
     </head>
     <body>
         <%
@@ -27,7 +29,21 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1>Detalles de un cuerpo, usuario: <%= usuario%></h1>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="index_cli.jsp">Ver productos</a></li>
+                    <li><a href="historial.jsp">Mis compras</a></li>
+                    <li><a href="Perfil_cli.jsp"><%= usuario%></a></li>
+                </ul>   
+        </nav>
+        </header>
         <%
             int id_producto,stock_cuerpo;
             float precio_cuerpo;
@@ -44,20 +60,24 @@
             
             int clas_cuerpo = 1;
         %>
+        <div class="detalles">
+            <div class="izquierda">
+                <h1>Tipo de cuerpo: <%= nombre_cuerpo %></h1><br>
+                <img src="<%= url_cuerpo %>" width="500px" height="500px"><br>
+            </div>
+            <div class="derecha" width="40%">
+                <div width="90%"><h5>Descripcion: <%= desc_cuerpo %></h5></div>
+                <h5>Color: <%= color_cuerpo %></h5>
+                <h5>Precio: <%= precio_cuerpo %></h5>
+                <h5>Stock: <%= stock_cuerpo %></h5>
+                <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_cuerpo%>&nombre=<%= nombre_cuerpo%>&color=<%= color_cuerpo%>&tipo=<%= clas_cuerpo%>&stock=<%= stock_cuerpo%>&precio=<%= precio_cuerpo%>">
+                    <h5> Cantidad a comprar:</h5>
+                        <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
+                        <input type="submit" value="Agregar al carrito" class="button">            
+                </form>
+            </div>
+                
+        </div>
         
-        <img src="<%= url_cuerpo %>" width="100px" height="100px"><br>
-        Id del producto: <%= id_producto %><br>
-        Tipo de cuerpo: <%= nombre_cuerpo %><br>
-        Descripcion: <%= desc_cuerpo %><br>
-        Color: <%= color_cuerpo %><br>
-        Precio: <%= precio_cuerpo %><br>
-        Stock: <%= stock_cuerpo %><br>
-        
-        
-        <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_cuerpo%>&nombre=<%= nombre_cuerpo%>&color=<%= color_cuerpo%>&tipo=<%= clas_cuerpo%>&stock=<%= stock_cuerpo%>&precio=<%= precio_cuerpo%>">
-            Cantidad a comprar:<br>
-            <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-            <input type="submit" value="Agregar al carrito">            
-        </form>
     </body>
 </html>

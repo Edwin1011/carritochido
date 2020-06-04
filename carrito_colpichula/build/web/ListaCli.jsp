@@ -11,22 +11,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <title>Lista de clientes</title>
     </head>
     <body>
-        <a href="index_admin.jsp">Lista de los cuerpos</a>
-        <a href="ListaConexiones.jsp">Lista de las conexiones</a>
-        <a href="ListaMicro.jsp">Lista de los microfonos</a>
-        <a href="ListaControles.jsp">Lista de los controladores</a>
-        <a href="ListaCli.jsp">Ver todos los clientes</a>
-        <a href="graficas.jsp">Ver las graficas de ventas-fechas</a>
-        <a href="CerrarSesion">Cerrar Sesion</a>
-        <a href="Perfil_admin.jsp">Ver mi perfil</a>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    
+                    <li><a href="graficas.jsp">Ver las ventas</a></li>
+                    <li><a href="index_admin.jsp">Ver productos</a></li>
+                    <li><a href="Perfil_admin.jsp">Ver mi perfil</a></li>
+                </ul>   
+            
+            </nav>
+        </header>
         <h1>Lista de todos los clientes</h1>
         <div class="megaconteiner">
-                <h1>Usuarios</h1>
-                <table>
-                    <tbody>
+                <div class="container">
+                <div style="overflow-x: auto;">
+                <table class="clientes">
+                    
                         <td align="center" >
                             Id
                         </td>
@@ -117,8 +129,10 @@
                             }
                         %>
                         </tr>                
-                    </tbody>
+                    
                 </table>
+                </div>
             </div>
+        </div>  
     </body>
 </html>
