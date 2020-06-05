@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -29,7 +31,7 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1>Detalles de un micro del usuario: <%= usuario%></h1>
+        
         <%
             int id_producto,stock_micro;
             float precio_micro;
@@ -44,17 +46,38 @@
             stock_micro = Integer.parseInt(request.getParameter("stock"));
             int clas_micro = 2;
         %>
-        
-        <img src="<%= url_micro %>" width="100px" height="100px"><br>
-        Id del producto: <%= id_producto %><br>
-        Tipo de microfono <%= nombre_cuerpo %><br>
-        Descripcion: <%= desc_micro %><br>
-        Precio: <%= precio_micro %><br>
-        Stock: <%= stock_micro %><br>
-        <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_micro%>&stock=<%= stock_micro%>&precio=<%= precio_micro%>&tipo=<%= clas_micro%>">
-            Cantidad a comprar:<br>
-            <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-        <input type="submit" value="Agregar al carrito">  
-        </form>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="index_cli.jsp">Ver productos</a></li>
+                    <li><a href="historial.jsp">Mis compras</a></li>
+                    <li><a href="Perfil_cli.jsp"><%= usuario%></a></li>
+                </ul>   
+        </nav>
+        </header>
+            
+        <div class="detalles">
+            <div class="izquierda">
+                <h1>Tipo de microfono <%= nombre_cuerpo %></h1><br>
+                <img src="<%= url_micro %>" width="500px" height="500px"><br>
+            </div>
+            <div class="derecha" width="40%">
+                <div width="90%"><h5>Descripcion: <%= desc_micro %></h5></div>
+                <h5>Precio: <%= precio_micro %></h5>
+                <h5>Stock: <%= stock_micro %><br></h5>
+                <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_micro%>&stock=<%= stock_micro%>&precio=<%= precio_micro%>&tipo=<%= clas_micro%>">
+                    <h5> Cantidad a comprar:</h5>
+                        <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
+                        <input type="submit" value="Agregar al carrito" class="button">            
+                </form>
+            </div>
+                
+        </div>
     </body>
 </html>

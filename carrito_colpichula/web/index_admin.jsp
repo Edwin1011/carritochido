@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo2.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>Cuerpos en stock</title>
     </head>
@@ -62,6 +62,7 @@
         <div class="megaconteiner">
                 <h1>Cuerpos</h1>
                 <div class="container">
+                <div style="overflow-x: auto;">
                 <table class="clientes">
                     <tbody>
                         <td align="center" >
@@ -143,6 +144,7 @@
                         </tr>                
                     </tbody>
                 </table>
+                </div>
                 </div>
             <div class="stock">
             <div>

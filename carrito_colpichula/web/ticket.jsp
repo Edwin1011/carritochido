@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilo2.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
@@ -27,7 +29,7 @@
                 usuario = (String)sesionOK.getAttribute("usuario");
             }
         %>
-        <h1  >Ticket de la compra del carrito del usuario <%= usuario%></h1>
+        
         
         <%
                 //Obtenemos el vector de detalles de la sesion
@@ -36,8 +38,24 @@
                     response.sendRedirect("index_cli.jsp");
                 }
             %>
-            
-            <table>
+            <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="index_cli.jsp">Ver productos</a></li>
+                    <li><a href="historial.jsp">Mis compras</a></li>
+                    <li><a href="Perfil_cli.jsp"><%= usuario%></a></li>
+                </ul>   
+        </nav>
+        </header>
+                <div class="container">
+                    <div style="overflow-x: auto;">
+                        <table class="clientes" >
                 <tbody>
                 <td>
                     Imagen
@@ -238,8 +256,11 @@ String tipo2 = "Conexion";
                 </tbody>
             </table>
                 <form method = "post" action="realizarcompra?<%= apagar%>">
-                   <input type="submit" value="Realizar la compra2">
-                   el total es: <%= apagar%>
+                   
+                    <h5>El total es: <%= apagar%></h5>
+                   <input type="submit" value="Realizar la compra2"class="button">
                 </form>
+                    </div>
+                </div>
     </body>
 </html>

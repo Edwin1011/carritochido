@@ -26,7 +26,7 @@ public class estadistica {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 31; i++) {
             con = Conexion.getConnection();
             String q = "call grafica(?)";
             ps = con.prepareStatement(q);
@@ -35,9 +35,9 @@ public class estadistica {
             int cant_t = 0;
             estadistica c = new estadistica();
             while(rs.next()){
-                cant_t += rs.getInt(2);
+                cant_t += rs.getInt(5);
                 c.setCantidad(cant_t);
-                c.setFecha_c(rs.getString(5));
+                c.setFecha_c(rs.getString(8));
             
                 
             }

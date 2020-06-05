@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <title>Mis compras</title>
     </head>
     <body><%
@@ -47,12 +47,13 @@
             </nav>
         </header>
         <h1>Buenas <%= usuario%> este es tu historial</h1>
-        <div class="historial">
-            <div>
+        <div class="megacontainer">
+        <div class="container">
+            <div style="overflow-x: auto;">
                 
             
             <table class="clientes">
-                <tbody>
+                
                 <td align="center">
                     id de la compra
                 </td>
@@ -210,9 +211,10 @@ c2= Contro.gelProductoById(dc.getId_producto());
 }
                     }
                 %>
-                </tbody>
+                
             </table>
-                </div>
+            </div>
+        </div>
         </div>
     </body>
 </html>

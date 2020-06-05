@@ -11,13 +11,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/Chart.js"></script>
         <title>JSP Page</title>
     </head>
     <body>
         <h1>graficas</h1>
-        <div class="megaconteiner">
+        
                 <h1>Usuarios</h1>
                 <table>
+                    <div style="width: 30%;">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </div>
+                    
                     <script>
                                     var cantidades = new Array();
                                     var fechas = new Array(); 
@@ -41,15 +46,42 @@
                                     fechas[<%=i%>] = "<%= c.getFecha_c()%>";
                                     console.log(cantidades[<%=i%>]);
                                     console.log(fechas[<%=i%>]);
+                                    
                                      
                                 </script>
                 <%}%>           
-                                
+                <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myLineChart = new Chart(ctx, {
+                    type: "line",
+                    data:{
+                        labels:fechas,
+                        datasets:[
+                            {
+                            label:"Grafica semanal",
+                            borderColor:"rgb(12,12,12)",
+                            fill: false,
+                            data:cantidades
+                        }
+                        ]
+                    }, options: {
+                        responsive:true,
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            } 
+                });
+                
+                </script>   
                     
                     
                 </table>
                 
-            </div>
+            
     </body>
 </html>
 
