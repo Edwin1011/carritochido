@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
@@ -65,7 +65,6 @@
       <div class="card-content">
         <h3><%= a.getNom_admi()%></h3>
         <form method="post" action="EditarNombre.jsp">
-        <input type="submit" value="Editar" class="btn-edit">
         </form>
       </div>
         <div class="usu">
@@ -129,7 +128,7 @@
             </div>
             
         
-      </div> <a href="editarAdmin.jsp">Editar datos menos el usuario y contraseña</a>
+        </div> <a href="editarAdmin.jsp"><input type="button" class="btn-edit" value="Editar" ></a>
     </div>
                                 
                                 <%

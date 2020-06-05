@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilo2.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>Cuerpos en stock</title>
     </head>
@@ -149,7 +149,7 @@
             <div class="stock">
             <div>
                     
-            <form method="post" action="SQuitarstock" class="formulario">
+                <form method="post" id="for" action="SQuitarstock" class="formulario">
             <h1>Alterar stocks</h1>
             <div class="contenedor">
                 <div>
@@ -174,9 +174,9 @@
                     </select>
                 </div>
                 <div class="input-contenedor2">
-                    <input type="text" class="add" name="stock" placeholder="Cantidad disponible">
+                    <input type="text" class="add" id="numero" name="stock" placeholder="Cantidad disponible">
                 </div>               
-                <input type="submit" value="Quitar"  class="btn-s">
+                <input type="submit" value="Quitar" onclick="validarEdit()" class="btn-s">
                 <br>
                 <br>
                 
@@ -184,7 +184,7 @@
         </form>
                 </div>
         <div>         
-        <form method="post" action="guardarcuerpo" class="formulario">
+        <form method="post" id="for2" action="guardarcuerpo" class="formulario">
             <h1>Agregar stocks</h1>
             <div class="contenedor">
                 <div>
@@ -209,9 +209,10 @@
                     </select>
                 </div>
                 <div class="input-contenedor2">
-                    <input type="text" class="add" name="stock" placeholder="Cantidad disponible">
-                </div>               
-                <input type="submit" value="Agregar" class="btn-s">
+                    <input type="text" class="add" id="numero2" name="stock" placeholder="Cantidad disponible">
+                </div>
+                <script src="js/main2.js"></script>
+                <input type="submit" value="Agregar" onclick="validarEdit2()" class="btn-s">
                 <br>
                 <br>
                 

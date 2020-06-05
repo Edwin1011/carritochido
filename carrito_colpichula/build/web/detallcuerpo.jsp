@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilo2.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>Microfono</title>
     </head>
@@ -70,10 +70,12 @@
                 <h5>Color: <%= color_cuerpo %></h5>
                 <h5>Precio: <%= precio_cuerpo %></h5>
                 <h5>Stock: <%= stock_cuerpo %></h5>
-                <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_cuerpo%>&nombre=<%= nombre_cuerpo%>&color=<%= color_cuerpo%>&tipo=<%= clas_cuerpo%>&stock=<%= stock_cuerpo%>&precio=<%= precio_cuerpo%>">
+                <input type="hidden" id="stock" value="<%= stock_cuerpo %>">
+                <form method="post" id="for" action="carrito?id_prod=<%= id_producto%>&url=<%= url_cuerpo%>&nombre=<%= nombre_cuerpo%>&color=<%= color_cuerpo%>&tipo=<%= clas_cuerpo%>&stock=<%= stock_cuerpo%>&precio=<%= precio_cuerpo%>">
                     <h5> Cantidad a comprar:</h5>
-                        <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-                        <input type="submit" value="Agregar al carrito" class="button">            
+                        <script src="js/main2.js"></script>
+                        <input type="text" name="cant" id="numero" placeholder="No mayor al stock" maxlength="2">
+                        <input type="submit" value="Agregar al carrito" onclick="validarcuerpo()" class="button">            
                 </form>
             </div>
                 

@@ -66,10 +66,12 @@
             <div class="derecha" width="40%">
                 <h5>Precio: <%= precio_contro %></h5>
                 <h5>Stock: <%= stock_contro %><br></h5>
-                <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_contro%>&stock=<%= stock_contro%>&precio=<%= precio_contro%>&tipo=<%= clas_contro%>">
+                <input type="hidden" id="stock" value="<%= stock_contro %>">
+                <form method="post" id="for" action="carrito?id_prod=<%= id_producto%>&url=<%= url_contro%>&stock=<%= stock_contro%>&precio=<%= precio_contro%>&tipo=<%= clas_contro%>">
                     <h5> Cantidad a comprar:</h5>
-                        <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-                        <input type="submit" value="Agregar al carrito" class="button">            
+                    <script src="js/main2.js"></script>
+                        <input type="text" name="cant" id="numero" placeholder="No mayor al stock" maxlength="2">
+                        <input type="submit" value="Agregar al carrito" onclick="validarcontro()" class="button">            
                 </form>
             </div>
                 

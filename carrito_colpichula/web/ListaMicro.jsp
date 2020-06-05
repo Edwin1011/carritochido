@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
@@ -147,7 +147,7 @@
             </div>
         </form>
                         <form method="post" action="guardarmicro" class="formulario">
-            <h1>agregar stock</h1>
+            <h1>Agregar stock</h1>
             <div class="contenedor">
                 <div>
                     <select name="tipo" class="opciones">

@@ -23,13 +23,31 @@
         c = Cliente.getClienteById(id_cliente);
         String nombre= c.getNombre();
         %>
-        <h1>Historial del cliente: <%= nombre%></h1>
+        
         <%
         
         %>
+        <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    
+                    <li><a href="graficas.jsp">Ver las ventas</a></li>
+                    <li><a href="index_admin.jsp">Ver los productos</a></li>
+                    <li><a href="Perfil_admin.jsp">Ver mi perfil</a></li>
+                </ul>   
+            
+            </nav>
+        </header>
+        <h1>Historial del cliente: <%= nombre%></h1>
         <div class="container">
-            <div style="overflow-x: auto;"
-        <table>
+            <div style="overflow-x: auto;">
+                <table class="clientes">
                 <tbody>
                 <td align="center">
                     id de la compra

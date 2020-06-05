@@ -67,10 +67,12 @@
             <div class="derecha" width="40%">
                 <h5>Precio: <%= precio_conec %></h5>
                 <h5>Stock: <%= stock_conec %><br></h5>
-                <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_conec%>&stock=<%= stock_conec%>&precio=<%= precio_conec%>&tipo=<%= clas_conec%>">
+                <input type="hidden" id="stock" value="<%= stock_conec %>">
+                <form method="post" id="for" action="carrito?id_prod=<%= id_producto%>&url=<%= url_conec%>&stock=<%= stock_conec%>&precio=<%= precio_conec%>&tipo=<%= clas_conec%>">
                     <h5> Cantidad a comprar:</h5>
-                        <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-                        <input type="submit" value="Agregar al carrito" class="button">            
+                        <script src="js/main2.js"></script>
+                        <input type="text" name="cant" id="numero" placeholder="No mayor al stock" maxlength="2">
+                        <input type="submit" value="Agregar al carrito" onclick="validarconec()" class="button">            
                 </form>
             </div>
                 

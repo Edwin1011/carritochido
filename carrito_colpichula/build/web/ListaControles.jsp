@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <title>JSP Page</title>
     </head>
@@ -77,9 +77,7 @@
                         <td align="center">
                             Stock
                         </td>
-                        <td align="center">
-                            Eliminar
-                        </td>
+                        
                 <%
                     List<Contro> lista = Contro.getAllContros();
                     Contro c = new Contro();
@@ -102,9 +100,7 @@
 
                             </td>
                             <td align="center"><%= c.getStock()%>
-                            <td align="center">
-                                <a href="EliminarContro?id=<%= c.getId_cont()%>" class="link">Eliminar el id <%= c.getId_cont()%></a>
-                            </td>
+                            
                         <%
                             }
                         %>

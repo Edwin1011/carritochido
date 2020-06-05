@@ -26,7 +26,7 @@ public class estadistica {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            for (int i = 0; i < 31; i++) {
+            for (int i = 0; i < 7; i++) {
             con = Conexion.getConnection();
             String q = "call grafica(?)";
             ps = con.prepareStatement(q);
@@ -57,33 +57,28 @@ public class estadistica {
         }
         return lista;
     }
-    public static List<Cliente> get15Ventas() throws ClassNotFoundException{
-        List<Cliente> lista = new ArrayList<Cliente>();
+    public static List<estadistica> get15Ventas() throws ClassNotFoundException{
+        List<estadistica> lista = new ArrayList<estadistica>();
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            for (int i = 0; i < 15; i++) {
             con = Conexion.getConnection();
-            String q = "call ListaClientes";
+            String q = "call grafica(?)";
             ps = con.prepareStatement(q);
+            ps.setInt(1,i);
             rs = ps.executeQuery();
-            
+            int cant_t = 0;
+            estadistica c = new estadistica();
             while(rs.next()){
+                cant_t += rs.getInt(5);
+                c.setCantidad(cant_t);
+                c.setFecha_c(rs.getString(8));
+            
                 
-                Cliente c = new Cliente();
-                
-                c.setId(rs.getInt(1));
-                c.setNombre(rs.getString(2));
-                c.setAppat(rs.getString(3));
-                c.setApmat(rs.getString(4));
-                c.setFecha(rs.getString(5));
-                c.setDirec(rs.getString(6));
-                c.setDirecen(rs.getString(7));
-                c.setTel(rs.getString(8));
-                c.setCel(rs.getString(9));
-                c.setUsuario(rs.getString(10));
-                c.setContraseña(rs.getString(11));
-                lista.add(c);
+            }
+            lista.add(c);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -99,33 +94,28 @@ public class estadistica {
         }
         return lista;
     }
-    public static List<Cliente> get30Ventas() throws ClassNotFoundException{
-        List<Cliente> lista = new ArrayList<Cliente>();
+    public static List<estadistica> get31Ventas() throws ClassNotFoundException{
+        List<estadistica> lista = new ArrayList<estadistica>();
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            for (int i = 0; i < 31; i++) {
             con = Conexion.getConnection();
-            String q = "call ListaClientes";
+            String q = "call grafica(?)";
             ps = con.prepareStatement(q);
+            ps.setInt(1,i);
             rs = ps.executeQuery();
-            
+            int cant_t = 0;
+            estadistica c = new estadistica();
             while(rs.next()){
+                cant_t += rs.getInt(5);
+                c.setCantidad(cant_t);
+                c.setFecha_c(rs.getString(8));
+            
                 
-                Cliente c = new Cliente();
-                
-                c.setId(rs.getInt(1));
-                c.setNombre(rs.getString(2));
-                c.setAppat(rs.getString(3));
-                c.setApmat(rs.getString(4));
-                c.setFecha(rs.getString(5));
-                c.setDirec(rs.getString(6));
-                c.setDirecen(rs.getString(7));
-                c.setTel(rs.getString(8));
-                c.setCel(rs.getString(9));
-                c.setUsuario(rs.getString(10));
-                c.setContraseña(rs.getString(11));
-                lista.add(c);
+            }
+            lista.add(c);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

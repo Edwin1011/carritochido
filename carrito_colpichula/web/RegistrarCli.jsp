@@ -16,41 +16,41 @@
 
     <body>
         <h1>Registrarte como cliente</h1>
-        <form method="post" action="guardarcliente" class="formulario">
+        <form method="post" action="guardarcliente" id="registro" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
                 <div class="input-contenedor">
-                    <input type="text" name="name" placeholder="Nombre 45 caracteres">
+                    <input type="text" name="name" id="name" placeholder="Nombre 19 caracteres (1)">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="apa" placeholder="Apellido paterno 45 caracteres">
+                    <input type="text" name="apa" id="apa" placeholder="Apellido paterno 19 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="ama" placeholder="Apellido Materno 45 caracteres">
+                    <input type="text" name="ama" id="ama" placeholder="Apellido Materno 19 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="date" name="f_nacimiento" placeholder="Fecha de Nacimiento YYYY-MM-DD">
+                    <input type="date" name="f_nacimiento" id="f_n" placeholder="Fecha de Nacimiento YYYY-MM-DD">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="direc" placeholder="Direccion 45 caracteres">
+                    <input type="text" name="direc" id="direc" placeholder="Direccion 45 caracteres">
                 </div>               
                 <div class="input-contenedor">
-                    <input type="text" name="direc_entrega" placeholder="Direccion de entrega 45 caracteres">
+                    <input type="text" name="direc_entrega" id="diren" placeholder="Direccion de entrega 45 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="tel" placeholder="Telefono">
+                    <input type="text" name="tel" id="tel" placeholder="Telefono">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="cel" placeholder="numero de celular">
+                    <input type="text" name="cel" id="cel" placeholder="numero de celular">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="usu" placeholder="Usuario 20 caracteres">
+                    <input type="text" name="usu" id="usuario" placeholder="Usuario 20 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="contra" placeholder="Password 20 caracteres">
+                    <input type="text" name="contra" id="contraseña" placeholder="Password 20 caracteres">
                 </div>
-                
-                <input type="submit" value="Registrarse" class="button">
+                <script src="js/main2.js"></script>
+                <input type="submit" value="Registrarse" onclick="validarregistro()" class="button">
                 <br>
                 <br>
                 

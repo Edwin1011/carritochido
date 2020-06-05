@@ -15,8 +15,24 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <script src="js/main.js"></script>
 </head>
 <body>
+    <header>
+            <input type="checkbox" id="btn-menu">
+                <label for="btn-menu"></label>
+            <div class="logo-cont">
+                <div class="logo">
+                </div>
+            </div>
+        <nav class="menu">
+                <ul>
+                    <li><a href="index_cli.jsp">Ver productos</a></li>
+                    <li><a href="historial.jsp">Mis compras</a></li>
+                    <li><a href="Perfil_cli.jsp">Perfil</a></li>
+                </ul>   
+        </nav>
+        </header>
 	<div class="contenedor">
             <% String total = request.getParameter("total"); %>
 		
@@ -56,7 +72,7 @@
 				</div>
 			</div>
 			<div class="env">
-				<button type="submit" class="enviar">Enviar</button>
+				<button type="submit" class="enviar" onclick="validartarjeta()">Enviar</button>
 
 			</div>
 		</form>

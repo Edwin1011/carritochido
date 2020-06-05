@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <title>JSP Page</title>
+        <title>Destalles de producto</title>
     </head>
     <body>
         
@@ -71,10 +71,12 @@
                 <div width="90%"><h5>Descripcion: <%= desc_micro %></h5></div>
                 <h5>Precio: <%= precio_micro %></h5>
                 <h5>Stock: <%= stock_micro %><br></h5>
-                <form method="post" action="carrito?id_prod=<%= id_producto%>&url=<%= url_micro%>&stock=<%= stock_micro%>&precio=<%= precio_micro%>&tipo=<%= clas_micro%>">
+                <input type="hidden" id="stock" value="<%= stock_micro %>">
+                <form method="post" id="for" action="carrito?id_prod=<%= id_producto%>&url=<%= url_micro%>&stock=<%= stock_micro%>&precio=<%= precio_micro%>&tipo=<%= clas_micro%>">
                     <h5> Cantidad a comprar:</h5>
-                        <input type="text" name="cant" placeholder="No mayor al stock" maxlength="2">
-                        <input type="submit" value="Agregar al carrito" class="button">            
+                        <script src="js/main2.js"></script>
+                        <input type="text" name="cant" id="numero" placeholder="No mayor al stock" maxlength="2">
+                        <input type="submit" value="Agregar al carrito" onclick="validarmicro()" class="button">            
                 </form>
             </div>
                 
