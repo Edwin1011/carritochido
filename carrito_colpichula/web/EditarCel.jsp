@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/estilo3.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <title>JSP Page</title>
+        <title>Editar celular</title>
     </head>
     <body>
         <%
@@ -37,10 +37,11 @@
                     c = Cliente.getClienteById(id_cli);
         %>
         <h1>Buenas, que numero de celular quieres:</h1>
-        <form action="Actcel_cli?id=<%= c.getId() %>" method="post">
+        <form action="Actcel_cli?id=<%= c.getId() %>" method="post" id="registro">
             <div class="contenedor">
-            <input type="text" placeholder="Que numero de celular quieres" name="nombre">
-            <input type="submit" value="Editar" class="button" >
+            <input type="text" placeholder="Que numero de celular quieres" name="nombre" id="cel">
+            <script src="js/main2.js"></script>
+            <input type="submit" value="Editar" onclick="validarCel()" class="button" >
             </div>
         </form>
     </body>

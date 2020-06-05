@@ -121,7 +121,7 @@
                 </div>
             <div class="stock">
             <div>
-            <form method="post" action="Squitarstockconec" class="formulario">
+                <form method="post" id="for" action="Squitarstockconec" class="formulario">
             <h1>Quitar stock</h1>
             <div class="contenedor">
                 <div>
@@ -131,9 +131,9 @@
                     </select>
                 </div>                
                 <div class="input-contenedor2">
-                    <input type="text" name="stock" class="add" placeholder="Cantidad disponible">
-                </div>               
-                <input type="submit" value="Quitar" class="btn-s">
+                    <input type="text" name="stock" id="numero" class="add" placeholder="Cantidad disponible">
+                </div>               <script src="js/main2.js"></script>
+                <input type="submit" value="Quitar" onclick="validarEdit()" class="btn-s">
                 <br>
                 <br>
                 
@@ -141,7 +141,7 @@
             </form>
             </div>     
             <div>         
-                <form method="post" action="guardarconexion" class="formulario">
+                <form method="post" id="for2" action="guardarconexion" class="formulario">
             <h1>Agregar stock</h1>
             <div class="contenedor">
                 <div>
@@ -151,9 +151,9 @@
                     </select>
                 </div>                
                 <div class="input-contenedor2">
-                    <input type="text" name="stock" class="add" placeholder="Cantidad disponible">
-                </div>               
-                <input type="submit" value="Agregar" class="btn-s">
+                    <input type="text" name="stock" id="numero2" class="add" placeholder="Cantidad disponible">
+                </div>             <script src="js/main2.js"></script>  
+                <input type="submit" value="Agregar" onclick="validarEdit2()" class="btn-s">
                 <br>
                 <br>
                 

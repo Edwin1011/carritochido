@@ -15,35 +15,36 @@
     </head>
     <body>
         <h1>Editar datos</h1>
-        <form method="post" action="EditarAdmi">
+        <form method="post" id="registro" action="EditarAdmi">
             
             <div class="contenedor">
                 <div class="input-contenedor">
-                    <input type="text" name="name" placeholder="Nombre 45 caracteres">
+                    <input type="text" name="name" id="name" placeholder="Nombre 45 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="apepat" placeholder="Apellido paterno 45 caracteres">
+                    <input type="text" name="apepat" id="apa" placeholder="Apellido paterno 45 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="apemat" placeholder="Apellido Materno 45 caracteres">
+                    <input type="text" name="apemat" id="ama" placeholder="Apellido Materno 45 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="date" name="fecha" placeholder="Fecha de Nacimiento YYYY-MM-DD">
+                    <input type="date" name="fecha" id="f_n" placeholder="Fecha de Nacimiento YYYY-MM-DD">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="direc" placeholder="Direccion 45 caracteres">
+                    <input type="text" name="direc" id="direc" placeholder="Direccion 45 caracteres">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="tel" placeholder="Telefono">
+                    <input type="text" name="tel" id="tel" placeholder="Telefono">
                 </div>
                 <div class="input-contenedor">
-                    <input type="text" name="cel" placeholder="numero de celular">
+                    <input type="text" name="cel" id="cel" placeholder="numero de celular">
                 
                 <br>
                 <br>
                 
             </div>
-                <input type="submit" value="Camabiar" class="button">
+                <script src="js/main2.js"></script>
+                <input type="submit" value="Camabiar" onclick="validarregistro2()" class="button">
         </div>
         </form>
     </body>

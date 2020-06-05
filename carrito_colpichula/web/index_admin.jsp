@@ -175,7 +175,7 @@
                 </div>
                 <div class="input-contenedor2">
                     <input type="text" class="add" id="numero" name="stock" placeholder="Cantidad disponible">
-                </div>               
+                </div>       <script src="js/main2.js"></script>        
                 <input type="submit" value="Quitar" onclick="validarEdit()" class="btn-s">
                 <br>
                 <br>

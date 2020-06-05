@@ -109,27 +109,27 @@
                 </table>
                 </div>
             <div class="stock">
-            <form method="post" action="Squitarstockcontro" class="formulario">
+                <form method="post" id="for" action="Squitarstockcontro" class="formulario">
             <h1>Quitar Stock</h1>
             <div class="contenedor">
                 
                 <div class="input-contenedor2">
-                    <input type="text" name="stock" class="add" placeholder="Cantidad disponible">
-                </div>               
-                <input type="submit" value="Quitar" class="btn-s">
+                    <input type="text" name="stock" id="numero" class="add" placeholder="Cantidad disponible">
+                </div>            <script src="js/main2.js"></script>   
+                <input type="submit" value="Quitar" onclick="validarEdit()" class="btn-s">
                 <br>
                 <br>
                 
             </div>
             </form>
-            <form method="post" action="guardarcontro" class="formulario">
+                <form method="post" id="for2" action="guardarcontro" class="formulario">
             <h1>Agregar Stock</h1>
             <div class="contenedor">
                 
                 <div class="input-contenedor2">
-                    <input type="text" name="stock" class="add" placeholder="Cantidad disponible">
-                </div>               
-                <input type="submit" value="Agregar" class="btn-s">
+                    <input type="text" name="stock" id="numero2" class="add" placeholder="Cantidad disponible">
+                </div>               <script src="js/main2.js"></script>
+                <input type="submit" value="Agregar" onclick="validarEdit2()" class="btn-s">
                 <br>
                 <br>
                 
