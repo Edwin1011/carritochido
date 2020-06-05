@@ -16,7 +16,7 @@
 
     <body>
         <h1>Registrarte como cliente</h1>
-        <form method="post" action="guardarcliente" id="registro" class="formulario">
+        <form method="post" id="registro" class="formulario">
             <h1>Registro</h1>
             <div class="contenedor">
                 <div class="input-contenedor">
