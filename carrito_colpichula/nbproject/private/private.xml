@@ -11,6 +11,25 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActDirec_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActApemar_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/js/main2.js</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/Login.jsp</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/Actcel_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActDirecEn_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/RegistrarCli.jsp</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActApepat_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/Acttel_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/VerificarCliente.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActNombre_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActFecha_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/detallMicro.jsp</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/EditarApemat.jsp</file>
+        </group>
+>>>>>>> c94dbe094595cd1c8acb9933915caa684e5a870d
     </open-files>
 </project-private>
