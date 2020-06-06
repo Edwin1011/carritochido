@@ -146,6 +146,7 @@ function validarlogin(){
     var usuario = document.getElementById("usuario");
     var contra = document.getElementById("contraseña");
     var chido = false;
+    login.action = "";
     var nom = /^[A-Z]+$/i;
     var accion = "VerificarCliente";
     var validarusu = function(e){
@@ -163,6 +164,7 @@ function validarlogin(){
             chido = false;
         }else{
             chido= true;
+            login.action = "VerificarCliente";
         }
     };
     var validarcontra = function(e){
@@ -176,6 +178,7 @@ function validarlogin(){
             chido = false;
         }else{
             chido= true;
+            login.action = "VerificarCliente";
         }
     };
     
@@ -204,6 +207,8 @@ function validarregistro(){
     var usuario = document.getElementById("usuario");
     var contra = document.getElementById("contraseña");
     var chido = false;
+    
+    regi.action = "";
     var nom = /^[A-Z]+$/i;
     var num = /^([0-9])*$/;
     
@@ -222,6 +227,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -240,6 +246,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -258,6 +265,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     var validarfecha = function(e){
@@ -274,6 +282,8 @@ function validarregistro(){
           alert("Ingrese la fecha");
             e.preventDefault(e);
             chido = false;
+      }else{
+          regi.action = "guardarcliente";
       }
     };
     
@@ -288,6 +298,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -302,6 +313,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -320,6 +332,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -338,6 +351,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -356,6 +370,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     var validarcontra = function(e){
@@ -369,6 +384,7 @@ function validarregistro(){
             chido = false;
         }else{
             chido= true;
+            regi.action = "guardarcliente";
         }
     };
     
@@ -398,7 +414,7 @@ function validarmicro(){
     var numero = document.getElementById("numero");
     var chido = false;
     var num = /^([0-9])*$/;
-    var accion = "VerificarCliente";
+    var accion = "";
     var micro = function(e){
         if(numero.value == ""){
             alert("Introduce la cantidad");
@@ -414,6 +430,7 @@ function validarmicro(){
             chido = false;
         }else{
             chido= true;
+            
         }
     };
     
@@ -476,7 +493,6 @@ function validarconec(){
     var numero = document.getElementById("numero");
     var chido = false;
     var num = /^([0-9])*$/;
-    var accion = "VerificarCliente";
     var conec = function(e){
         if(numero.value == ""){
             alert("Introduce la cantidad");
@@ -492,6 +508,7 @@ function validarconec(){
             chido = false;
         }else{
             chido= true;
+            form.action = "VerificarCliente";
         }
     };
     

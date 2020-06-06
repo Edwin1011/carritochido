@@ -13,7 +13,7 @@
 
 <body oncopy='return false' oncut='return false' onpaste='return false' ondragstart="return false" ondrop="return false">
     <div class="login">
-            <form method="post" action="VerificarCliente" id="login">
+            <form method="post"  id="login">
             <h1 class="subtitulo">Inicio de sesion</h1>
             <div class="contenedor">
                 <div class="input-contenedor">
