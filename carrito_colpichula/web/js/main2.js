@@ -415,7 +415,6 @@ function validarmicro(){
     var chido = false;
     var num = /^([0-9])*$/;
     var accion = "";
-    form.action = "carrito?id_prod=<%= id_producto%>&url=<%= url_micro%>&stock=<%= stock_micro%>&precio=<%= precio_micro%>&tipo=<%= clas_micro%>";
     var micro = function(e){
         if(numero.value == ""){
             alert("Introduce la cantidad");

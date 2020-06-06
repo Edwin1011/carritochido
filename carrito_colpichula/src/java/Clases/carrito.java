@@ -49,12 +49,22 @@ public class carrito extends HttpServlet {
                 }
                 
                 //parametros:
+                
+                
                 int clasificador = Integer.parseInt(request.getParameter("tipo"));
                 System.out.println("El holaaaa"+clasificador);
                 int id_prod = Integer.parseInt(request.getParameter("id_prod"));
                 float precio = Float.parseFloat(request.getParameter("precio"));
                 int stock = Integer.parseInt(request.getParameter("stock"));
                 int cantidad = Integer.parseInt(request.getParameter("cant"));
+                
+                int cero =0;
+                if(stock == cero){
+                    System.out.println("Hola55");
+                    response.sendRedirect("Error.jsp");
+                }else{
+                    
+                }
                 
                 System.out.println("Hola4");
                 if (stock<=cantidad) {

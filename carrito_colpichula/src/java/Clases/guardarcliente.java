@@ -51,6 +51,16 @@ public class guardarcliente extends HttpServlet {
                 usuario = request.getParameter("usu");
                 contraseña = request.getParameter("contra");
                 
+                if(nombre.equals("drop database") || appat.equals("drop database") || apmat.equals("drop database")|| fecha.equals("drop database")|| direc.equals("drop database")|| direcen.equals("drop database")|| tel.equals("drop database")|| cel.equals("drop database")|| usuario.equals("drop database")|| contraseña.equals("drop database")){
+                    response.sendRedirect("Error.jsp");
+                    System.out.println("Error dentro del if de nulo");
+                }else if(nombre.equals("DROP DATABASE") || appat.equals("DROP DATABASE") || apmat.equals("DROP DATABASE")|| fecha.equals("DROP DATABASE")|| direc.equals("DROP DATABASE")|| direcen.equals("DROP DATABASE")|| tel.equals("DROP DATABASE")|| cel.equals("DROP DATABASE")|| usuario.equals("DROP DATABASE")|| contraseña.equals("DROP DATABASE")){
+                    response.sendRedirect("Error.jsp");
+                    System.out.println("Error dentro del if de nulo");
+                }else{
+                    System.out.println("Bien");
+                }
+                
                 //Hacemos el objeto
                 Cliente e = new Cliente();
                 e.setNombre(nombre);

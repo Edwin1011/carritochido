@@ -43,6 +43,16 @@ public class ActApepat_cli extends HttpServlet {
                 nombre = request.getParameter("nombre");
                 int id =Integer.parseInt( request.getParameter("id"));
                 
+                if(nombre.equals("drop database") ){
+                    response.sendRedirect("Error.jsp");
+                    System.out.println("Error dentro del if de nulo");
+                }else if(nombre.equals("DROP DATABASE") ){
+                    response.sendRedirect("Error.jsp");
+                    System.out.println("Error dentro del if de nulo");
+                }else{
+                    System.out.println("Bien");
+                }
+                
                 //Hacemos el objeto
                 Cliente c = new Cliente();
                 c.setAppat(nombre);

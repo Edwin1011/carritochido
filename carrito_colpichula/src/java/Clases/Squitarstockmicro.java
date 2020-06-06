@@ -57,6 +57,8 @@ public class Squitarstockmicro extends HttpServlet {
                     imagen = 2;
                 }
                 
+                
+                
                 Micro e = new Micro();
                 e.setTipo(tipo);
                 e.setStock(disponi); 

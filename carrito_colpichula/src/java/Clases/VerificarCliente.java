@@ -42,6 +42,16 @@ public class VerificarCliente extends HttpServlet {
                 
                 user = request.getParameter("usu");
                 pass = request.getParameter("contra");
+                
+                if(user.equals("drop database") || pass.equals("drop database")){
+                    response.sendRedirect("Error.jsp");
+                    System.out.println("Error dentro del if de nulo");
+                }else if(user.equals("DROP DATABASE") || pass.equals("DROP DATABASE")){
+                    response.sendRedirect("Error.jsp");
+                    System.out.println("Error dentro del if de nulo");
+                }else{
+                    System.out.println("Bien");
+                }
                 //Hacemos una instancia de la clase Cliente
                 Admin a = new Admin();
                 if (admin.equals(user)) {
