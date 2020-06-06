@@ -12,20 +12,17 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActDirec_cli.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActApemar_cli.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/js/main2.js</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/Login.jsp</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/Actcel_cli.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActDirecEn_cli.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/RegistrarCli2.jsp</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/index_admin.jsp</file>
             <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/RegistrarCli.jsp</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActApepat_cli.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/Acttel_cli.java</file>
             <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/VerificarCliente.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActNombre_cli.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/ActFecha_cli.java</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/detallMicro.jsp</file>
-            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/EditarApemat.jsp</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/js/main2.js</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/guardarcliente.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/SQuitarstock.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/Cliente.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/Login.jsp</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/src/java/Clases/guardarcuerpo.java</file>
+            <file>file:/C:/Users/KRAND/Documents/GitHub/carritochido/carrito_colpichula/web/ListaCli.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -8,6 +8,7 @@ package Clases;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -60,6 +61,22 @@ public class guardarcliente extends HttpServlet {
                 }else{
                     System.out.println("Bien");
                 }
+                
+                
+                List<Cliente> lista = Cliente.getAllClientes();
+                    Cliente c = new Cliente();
+                    for (int i = 0; i < lista.size(); i++) {
+                            c = (Cliente)lista.get(i);
+                            if(c.getUsuario().equals(usuario)){
+                                response.sendRedirect("RegistrarCli2.jsp");
+                            }
+                            
+                            
+                            
+                    }
+                
+                
+                
                 
                 //Hacemos el objeto
                 Cliente e = new Cliente();
